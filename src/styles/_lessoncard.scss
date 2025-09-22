@@ -9,7 +9,7 @@
 
     &.open {
         z-index: 2;
-        transform: scale(2);
+        // transform: scale(2);
     }
 
     &.open .lesson__card {
@@ -41,7 +41,7 @@
 
     .back {
         transform: rotateY(180deg);
-        font-size: 0.5rem;
+        font-size: 1rem;
     }
 
     .lesson__card--inner {

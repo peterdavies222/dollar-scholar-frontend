@@ -94,7 +94,7 @@ export default function LessonQuizView() {
                 <div>
                     <h3 className="subheading">Question {questionNumber}</h3>
                     <h1>{question.question}</h1>
-                    <p className="lesson__hint">{question.hint}</p>
+                    {question.hint && <p className="lesson__hint">Hint: {question.hint}</p>}
                     <div className="quiz__options">
                         {options}
                     </div>
@@ -108,6 +108,7 @@ export default function LessonQuizView() {
             <CloseLesson 
                 dialogOpen={dialogOpen}
                 onClose={()=> setDialogOpen(false)}
+                setSelectedOptions={setSelectedOptions}
             />
             <CheckAnswer 
                 success={success}

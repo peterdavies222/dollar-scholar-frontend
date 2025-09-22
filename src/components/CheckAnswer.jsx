@@ -18,6 +18,11 @@ export default function CheckAnswer(props) {
         }
     }, [props.checkAnswerOpen])
 
+    const proceedToNext = () => {
+        checkAnswerRef.current.hide()
+        props.setSelectedOptions([])
+    }
+
     return createPortal(
         <SlDialog 
             ref={checkAnswerRef}
@@ -30,7 +35,7 @@ export default function CheckAnswer(props) {
             {props.success ?
                 <div className="footer" slot="footer">
                     <PoppingButton 
-                        onClick={()=>checkAnswerRef.current.hide()}
+                        onClick={proceedToNext}
                         link={props.nextScreen}
                         label="Continue"
                         narrow
@@ -42,7 +47,10 @@ export default function CheckAnswer(props) {
                         label="Try again"
                         narrow
                     />
-                    <Link to={props.nextScreen}>Skip question</Link>
+                    <Link 
+                        to={props.nextScreen}
+                        onClick={()=> props.setSelectedOptions([])}
+                    >Skip question</Link>
                 </div>
             }
         </SlDialog>
