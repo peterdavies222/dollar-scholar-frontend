@@ -1,0 +1,20 @@
+.welcome__card {
+    width: 150px;
+    height: 210px;
+    padding: 4px 4px 8px 4px;
+    background-color: var(--grey-3);
+    border-radius: 15px;
+    color: var(--green-7);
+
+    &--inner {
+        background-color: var(--white);
+        padding: 1rem;
+        border-radius: 11px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+    }
+}

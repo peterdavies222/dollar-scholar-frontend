@@ -1,0 +1,74 @@
+.lesson__title-container {
+    width: 50%;
+    padding: 4px 4px 8px 4px;
+    display: block;
+    border-radius: 15px;
+    background-color: var(--border-color);
+    transition: all 0.1s;
+    margin-bottom: 45px;
+    border: none;
+    font-size: calc(20rem/16);
+
+    &:hover {
+        padding: 4px 4px 12px 4px;
+        margin-top: -4px;
+    }
+
+    &:active {
+        margin-top: 0;
+        margin-bottom: 49px;
+        padding: 4px;
+        transform: translateY(4px);
+    }
+
+    &.complete {
+        --border-color: var(--green-6);
+        --fill-color: var(--green-2);
+        --text-color: var(--green-8);
+    }
+
+    &.unlocked {
+        --border-color: var(--green-7);
+        --fill-color: var(--green-6);
+        --text-color: var(--white);
+    }
+
+    &.locked {
+        --border-color: var(--grey-3);
+        --fill-color: var(--grey-2);
+        --text-color: var(--grey-5);
+    }
+
+    &.base {
+        --border-color: var(--black);
+        --fill-color: var(--white);
+        --text-color: var(--black);
+    }
+
+    .lesson__title-inner {
+        background: var(--fill-color);
+        border-radius: 11px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 20px;
+        color: var(--text-color);
+
+        div {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+
+            p {
+                font-weight: 700;
+            }
+        }
+
+        &>p {
+            font-size: 1rem;
+        }
+    }
+
+
+
+}

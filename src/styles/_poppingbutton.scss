@@ -1,0 +1,61 @@
+// stylistic buttons
+
+.popping-button {
+
+    &.inactive {
+        --outline-color: var(--grey-5);
+        --inner-color: var(--grey-4);
+        --text-color: var(--white);
+    }
+
+    &.green {
+        --outline-color: var(--green-8);
+        --inner-color: var(--green-desat-1);
+        --text-color: var(--white);
+    }
+
+    &.pink {
+        --outline-color: var(--pink-8);
+        --inner-color: var(--pink-desat-1);
+        --text-color: var(--white);
+    }
+
+    padding: 4px 4px 8px 4px;
+    border-radius: 15px;
+    border: none;
+    background-color: var(--outline-color);
+    transition: all 0.1s;
+    display: block;
+    font-size: 1rem;
+    margin-block: 30px 15px;
+    width: 100%;
+
+    &.narrow {
+        width: fit-content;
+
+        .popping-button__inner {
+            padding-inline: 4rem;
+        }
+    }
+
+    &__inner {
+        width: 100%;
+        height: 100%;
+        border-radius: 11px;
+        background-color: var(--inner-color);
+        color: var(--text-color);
+        font-weight: bold;
+        padding: 10px;
+    }
+
+    &:not(.inactive):hover {
+        padding-bottom: 12px;
+        margin-top: 26px;
+    }
+
+    &:not(.inactive):active {
+        padding-bottom: 4px;
+        outline: none;
+        margin-top: 34px;
+    }
+}

@@ -1,0 +1,19 @@
+.lesson__intro {
+
+    &--main {
+        ul, p:not(:last-of-type) {
+            margin-bottom: 30px;
+            font-size: 1rem;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+    }
+
+    &--footer {
+        width: 50%;
+        margin: auto;
+        text-align: center;
+    }
+}

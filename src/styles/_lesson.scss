@@ -1,0 +1,117 @@
+main.lesson__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-inline: calc(2*var(--spacing));
+    padding: 0 0 var(--spacing) 0;
+    width: auto;
+
+    .paragraphs {
+        margin-top: 40px;
+
+        p:not(:last-of-type) {
+            margin-bottom: 30px;
+        }
+    }
+
+    .lesson__cards {
+        margin-top: 60px;
+        display: flex;
+        gap: 40px;
+        padding-bottom: 60px;
+    }
+
+    .popping-button {
+        margin-inline: auto;
+    }
+
+    .lesson__hint {
+        margin-top: 40px;
+    }
+
+    .quiz__options {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 50px);
+        gap: 20px;
+        width: 100%;
+        margin-top: 60px;
+        padding-bottom: 60px;
+    }
+
+    .quiz__option {
+        background: var(--white);
+        border: 2px solid var(--green-4);
+        border-radius: 10px;
+        font-weight: 700;
+        color: var(--grey-7);
+        transition: all 0.2s;
+
+        &:not(.selected):hover {
+            background-color: var(--green-2);
+        }
+
+        &.selected {
+            background-color: var(--green-4);
+            color: var(--grey-9);
+        }
+    }
+
+    &.summary {
+        flex-direction: row;
+    }
+
+    .lesson__summary__text {
+
+        .lesson__summary__block:not(:last-of-type) {
+            margin-bottom: 60px;
+        }
+
+        .lesson__summary__block:last-of-type {
+            padding-bottom: 45px;
+        }
+
+        h1 {
+            margin-bottom: 30px;
+        }
+
+        .lesson__summary__byline {
+            font-weight: 700;
+            color: var(--grey-7);
+        }
+
+        .subheading {
+            margin-bottom: 20px;
+        }
+
+        .lesson__summary__topic {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+
+            &::before {
+                content: url('../assets/lesson-icons/arrow.svg');
+                transform: translateY(0.1rem);
+            }
+        }
+
+        .topics__explanation {
+
+            span {
+                padding: 5px;
+                border-radius: 5px;
+                background-color: var(--green-3);
+                font-weight: 700;
+            }
+        }
+
+        a {
+            margin-inline: 0;
+        }
+    }
+
+    
+}
+

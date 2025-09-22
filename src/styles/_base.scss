@@ -1,0 +1,44 @@
+body {
+    background-color: var(--pink-1);
+}
+
+.contains__nav__desktop {
+    display: flex;
+}
+
+main {
+    padding: var(--spacing);
+    width: 100%;
+}
+
+header {
+    margin-bottom: var(--spacing);
+}
+
+h1, h2, h3 {
+    font-family: filson-soft, system-ui, sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.subheading {
+    font-size: 1rem;
+    color: var(--grey-5);
+    margin-bottom: 10px;
+}
+
+.dismiss-button {
+    background: none;
+    border: none;
+    font-family: filson-soft, system-ui, sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    color: var(--pink-7);
+}
+
+.exit-link {
+    font-family: filson-soft, system-ui, sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    color: var(--red-2);
+}

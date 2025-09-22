@@ -1,0 +1,78 @@
+@use "sass:color";
+
+:root {
+
+    --white: #fff;
+    --black: #000;
+
+    --pink-1: hsl(300, 100%, 98.5%);
+    --pink-2: hsl(304, 100%, 95%);
+    --pink-3: hsl(304, 100%, 89%);
+    --pink-4: hsl(304, 100%, 76%);
+    --pink-5: hsl(304, 97%, 64%);
+    --pink-6: hsl(304, 90%, 53%);
+    --pink-7: hsl(304, 100%, 39%);
+    --pink-8: hsl(304, 100%, 28%);
+    --pink-9: hsl(304, 100%, 19%);
+
+    --pink-desat-1: hsl(304, 50%, 52%);
+    --pink-desat-2: hsl(304, 46%, 75%);
+
+    --green-1: hsl(145, 100%, 96%);
+    --green-2: hsl(145, 100%, 90%);
+    --green-3: hsl(145, 70%, 77%);
+    --green-4: hsl(145, 66%, 68%);
+    --green-5: hsl(145, 66%, 59%);
+    --green-6: hsl(145, 74%, 37%);
+    --green-7: hsl(145, 100%, 23%);
+    --green-8: hsl(145, 100%, 16%);
+    --green-9: hsl(145, 100%, 10%);
+
+    --green-desat-1: hsl(145, 51%, 41%);
+    --green-desat-2: hsl(146, 30%, 86%);
+
+    --grey-1: hsl(0, 0%, 97%);
+    --grey-2: hsl(0, 0%, 91%);
+    --grey-3: hsl(0, 0%, 73%);
+    --grey-4: hsl(0, 0%, 66%);
+    --grey-5: hsl(0, 0%, 53%);
+    --grey-6: hsl(0, 0%, 38%);
+    --grey-7: hsl(0, 0%, 27%);
+    --grey-8: hsl(0, 0%, 18%);
+    --grey-9: hsl(0, 0%, 7%);
+
+    --red-1: #DD6666;
+    --red-2: #c91c1c;
+    --red-3: #A00000;
+
+    //shoelace
+
+    $brand-color: hsl(145, 74%, 37%);
+
+    --sl-color-primary-50: #{color.adjust($brand-color, $lightness: 50%)};
+    --sl-color-primary-100: #{color.adjust($brand-color, $lightness: 40%)};
+    --sl-color-primary-200: #{color.adjust($brand-color, $lightness: 30%)};
+    --sl-color-primary-300: #{color.adjust($brand-color, $lightness: 20%)};
+    --sl-color-primary-400: #{color.adjust($brand-color, $lightness: 10%)};
+    --sl-color-primary-500: #{$brand-color};
+    --sl-color-primary-600: #{color.adjust($brand-color, $lightness: -10%)};
+    --sl-color-primary-700: #{color.adjust($brand-color, $lightness: -20%)};
+    --sl-color-primary-800: #{color.adjust($brand-color, $lightness: -30%)};
+    --sl-color-primary-900: #{color.adjust($brand-color, $lightness: -40%)};
+    --sl-color-primary-950: #{color.adjust($brand-color, $lightness: -50%)};
+
+
+    --spacing-desktop: 90px;
+    --spacing-tablet: 45px;
+    --spacing-mobile: 20px;
+
+    --spacing: var(--spacing-desktop);
+    
+    @media (width < 900px) {
+        --spacing: var(--spacing-tablet);
+    }
+    @media (width < 600px) {
+        --spacing: var(--spacing-mobile);
+    }
+
+}

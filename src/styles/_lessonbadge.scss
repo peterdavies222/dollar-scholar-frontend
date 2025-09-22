@@ -1,0 +1,18 @@
+.lesson__badge {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    width: min-content;
+
+    img {
+        width: 60px;
+        height: 60px;
+    }
+
+    p {
+        text-align: center;
+        font-size: 0.75rem;
+    }
+}

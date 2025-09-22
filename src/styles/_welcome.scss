@@ -1,0 +1,40 @@
+* {
+    // outline: 1px solid red;
+}
+
+.welcome {
+
+    padding-inline: calc(2*var(--spacing));
+
+    h1 {
+        color: var(--pink-7);
+        font-size: 3rem;
+        text-align: center;
+    }
+
+    .cards__container {
+        padding-block: 90px;
+        margin-inline: calc(-2 * var(--spacing));
+        width: calc(100% + 4*var(--spacing));
+        display: flex;
+        gap: 20px;
+        overflow: hidden;
+        mask-image: linear-gradient(90deg, transparent 5%, red 25%, red 75%, transparent 95%);
+    }
+
+    .welcome__card {
+        flex-shrink: 0;
+    }
+
+    .popping-button {
+        margin-inline: auto;
+    }
+
+    .signin {
+        font-family: filson-soft, system-ui, sans-serif;
+        font-weight: 700;
+        color: var(--pink-7);
+        text-align: center;
+        display: block;
+    }
+}

@@ -1,0 +1,32 @@
+.check__answer {
+
+    &::part(header) {
+        margin-bottom: 45px;
+    }
+    &::part(header-actions) {
+        display: none;
+    }
+
+    h2 {
+        text-align: center;
+    }
+
+    p {
+        text-align: center;
+        padding-bottom: 15px;
+    }
+
+    button {
+        display: block;
+        margin-inline: auto;
+    }
+
+    a {
+        margin-inline: auto;
+        text-align: center;
+        display: block;
+        font-family: filson-soft, system-ui, sans-serif;
+        font-weight: 700;
+        color: var(--pink-8);
+    }
+}

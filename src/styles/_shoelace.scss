@@ -1,0 +1,29 @@
+sl-dialog {
+    
+    --width: 850px;
+
+    .dialog-main {
+        margin-bottom: 30px;
+    }
+
+    &::part(panel) {
+        border-radius: 30px;
+        padding: 30px;
+    }
+
+    &::part(body) {
+        padding: 0;
+    }
+
+    &::part(title) {
+        padding: 0;
+    }
+
+    &::part(header) {
+        margin-bottom: 30px;
+    }
+
+    &::part(footer) {
+        padding: 0;
+    }
+}
