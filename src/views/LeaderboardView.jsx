@@ -7,11 +7,13 @@ export default function LeaderboardView( {currentUser }) {
     }
 
     return (
-        <div className="contains__nav__desktop">
+        <div className="contains__nav__desktop leaderboard">
+            <div className="circle circle-1"></div>
+            <div className="circle circle-2"></div>
             <Nav 
                 currentUser={currentUser}
                 section="leaderboard"/>
-            <main>
+            <main className="main">
                 <h1>Leaderboard</h1>
             </main>
         </div>

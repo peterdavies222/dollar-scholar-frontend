@@ -5,8 +5,9 @@ import PoppingButton from "../../components/PoppingButton"
 import LessonBadge from "../../components/LessonBadge"
 import { Link } from "react-router-dom"
 import mascot from '../../assets/mascot-3.svg'
+import UserAPI from "../../UserAPI"
 
-export default function LessonSummaryView({currentUser}) {
+export default function LessonSummaryView({currentUser, setCurrentUser}) {
 
     const {lessonId} = useParams()
     const lesson = lessonsData.find(
@@ -19,10 +20,16 @@ export default function LessonSummaryView({currentUser}) {
         )
     })
 
+    const completeLesson = async (lessonId) => {
+        const updatedUser = await UserAPI.completeLesson(lessonId, currentUser._id, currentUser.upToLevel)
+        setCurrentUser(updatedUser)
+    }
+
     return (
         <>
             <LessonHeader 
                 summary={true}
+                onClick={()=>completeLesson(Number(lessonId))}
                 lesson={lesson}
                 moduleNumber={lesson.teachingModules.length + lesson.quizQuestions.length + 1}
             />
@@ -53,6 +60,7 @@ export default function LessonSummaryView({currentUser}) {
                         narrow
                         link="/learn"
                         label="Heck yeah!"
+                        onClick={()=>completeLesson(Number(lessonId))}
                     />
                 </div>
                 <img src={mascot} alt="Mascot"/>

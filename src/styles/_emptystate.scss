@@ -1,0 +1,15 @@
+.empty-state {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    h2 {
+        margin-block: 2em .5em;
+    }
+
+    img {
+        width: 350px;
+        max-width: 50%;
+    }
+}

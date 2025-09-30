@@ -1,5 +1,5 @@
 .lesson__title-container {
-    width: 50%;
+    width: 100%;
     padding: 4px 4px 8px 4px;
     display: block;
     border-radius: 15px;
@@ -9,12 +9,21 @@
     border: none;
     font-size: calc(20rem/16);
 
-    &:hover {
+    &:not(.locked):hover {
         padding: 4px 4px 12px 4px;
         margin-top: -4px;
     }
 
-    &:active {
+    &.locked {
+        cursor: unset;
+    }
+
+    &.wiggling {
+        --amount: 10px;
+        animation: wiggle 0.5s ease-in-out;
+    }
+
+    &:not(.locked):active {
         margin-top: 0;
         margin-bottom: 49px;
         padding: 4px;
@@ -68,7 +77,16 @@
             font-size: 1rem;
         }
     }
+}
 
-
-
+@keyframes wiggle {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    10%, 50%, 90% {
+        transform: translateX(var(--amount));
+    }
+    30%, 70% {
+        transform: translateX(calc(-1 * var(--amount)));
+    }
 }

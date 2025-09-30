@@ -3,6 +3,7 @@ import lessonsData from '../lessonsData'
 import LessonTitle from '../components/LessonTitle'
 import LessonIntro from '../components/LessonIntro'
 import {useState} from 'react'
+import learnConceptInMinutes from '../assets/learn-concept-in-minutes.svg'
 
 export default function LearnView( {currentUser}) {
 
@@ -11,10 +12,10 @@ export default function LearnView( {currentUser}) {
     const lessons = lessonsData.map(lesson => {
         return (
             <LessonTitle
+                completion={currentUser.upToLevel < lesson.number ? 'locked' : currentUser.upToLevel === lesson.number ? 'unlocked' : 'complete'}
                 key={lesson.title}
                 number={lesson.number}
                 title={lesson.title}
-                completion=""
                 mainIcon={lesson.mainIcon}
                 mainIconAlt={lesson.mainIconAlt}
                 duration={lesson.duration}
@@ -28,20 +29,25 @@ export default function LearnView( {currentUser}) {
     }
 
     return (
-        <div className="contains__nav__desktop">
+        <div className="contains__nav__desktop learn">
+            <div className="circle circle-1"></div>
+            <div className="circle circle-2"></div>
             <Nav 
                 currentUser={currentUser}
                 section="learn"
             />
 
             <main>
-                <header>
+                <header className="main">
                     <h1>Welcome back, {currentUser.username}!</h1>  
                 </header>
-
-                <div className="lessons">
-                    {lessons}
+                <div className="container">
+                    <div className="lessons">
+                        {lessons}
+                    </div>
+                    <img className="mascot" src={learnConceptInMinutes} alt="Learn a new concept in minutes!" />
                 </div>
+
             </main>
 
             <LessonIntro 

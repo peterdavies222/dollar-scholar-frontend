@@ -6,6 +6,27 @@
 
     padding-inline: calc(2*var(--spacing));
 
+        .circle-1 {
+            width: 500px;
+            top: 0;
+            left: 0;
+            transform: translate(-50%, -50%);
+        }
+
+        .circle-2 {
+            width: 100px;
+            top: 0;
+            transform: translateY(-50%);
+            left: 280px;
+        }
+
+        .circle-3 {
+            width: 400px;
+            bottom: 0;
+            right: 0;
+            transform: translate(20%, 50%);
+        }
+
     h1 {
         color: var(--pink-7);
         font-size: 3rem;

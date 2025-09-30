@@ -17,6 +17,9 @@ export default function WelcomeView() {
 
     return (
         <main className="welcome">
+            <div className="circle circle-1"></div>
+            <div className="circle circle-2"></div>
+            <div className="circle circle-3"></div>
             <h1>Dollar Scholar is your key to financial confidence and success.</h1>
             
             <div className="cards__container">

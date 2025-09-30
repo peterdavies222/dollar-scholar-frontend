@@ -1,0 +1,17 @@
+.leaderboard {
+    
+    .circle-1 {
+        width: 500px;
+        bottom: 0;
+        left: 0;
+        transform: translate(-30%, 50%);
+    }
+    
+    .circle-2 {
+        width: 200px;
+        top: 0;
+        right: 0;
+        z-index: 1000;
+        transform: translate(50%, -50%);
+    }
+}

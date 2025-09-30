@@ -7,7 +7,7 @@ const LessonHeader = forwardRef(function LessonHeader(props, ref) {
     return (
         <header ref={ref} className="lesson__header">
             {props.summary ?
-            <Link to="/learn">
+            <Link to="/learn" onClick={props.onClick}>
                 <CloseIcon />
                 Exit lesson
             </Link>

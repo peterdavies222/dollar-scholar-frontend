@@ -30,9 +30,8 @@ export default function SignUpView({ setToken }) {
         } else {
             setToken(result.token)
             localStorage.setItem('token', result.token)
-            navigate('/learn');
+            navigate('/onboarding');
         }
-
     }
 
     return (
