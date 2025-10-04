@@ -29,7 +29,7 @@ export default function OnboardingView({currentUser}) {
     }, [currentFrame])
     return (
         <div className="onboarding">
-            <header>
+            <header className="main">
                 <img src={brandmark} alt="Dollar Scholar" />
             </header>
             <main>

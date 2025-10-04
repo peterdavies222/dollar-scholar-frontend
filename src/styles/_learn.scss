@@ -17,6 +17,7 @@
         transform: translateY(-50%);
         right: var(--spacing);
         z-index: 1000;
+        max-height: 100vh;
     }
     .circle-1 {
         width: 500px;

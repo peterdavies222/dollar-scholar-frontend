@@ -6,7 +6,7 @@ import mascot from '../assets/mascot-1.svg'
 import brandmark from '../assets/brandmark.svg'
 import PoppingButton from '../components/PoppingButton'
 
-export default function SignInView({ setToken }) {
+export default function SignInView({ setToken, setToastData }) {
 
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
@@ -15,17 +15,37 @@ export default function SignInView({ setToken }) {
 
     const handleSubmit = async e => {
         e.preventDefault()
+
+        if(!username || !password) {
+            return (
+                setToastData({
+                    visible: true,
+                    message: 'Username and password required.',
+                    type: 'error'
+                })
+            )
+        }
+
         const result = await AuthAPI.signInUser({
             username,
             password
         })
         if(!result.token) {
-            alert('Sign in failed')
+            setToastData({
+                visible: true,
+                message: 'Username or password incorrect',
+                type: 'error'
+            })
             return
+
         } else {
             setToken(result.token)
             localStorage.setItem('token', result.token)
             navigate('/learn');
+            setToastData({
+                visible: true,
+                message: 'Welcome to Dollar Scholar'
+            })
         }
 
     }

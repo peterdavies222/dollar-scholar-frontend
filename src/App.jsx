@@ -21,6 +21,8 @@ import LessonSummaryView from './views/lessons/LessonSummaryView'
 
 import ReviseConceptView from './views/ReviseConceptView'
 
+import Toast from './Toast.jsx'
+
 // this is a function which will redirect to the signin page if there is no user logged in (aka no token)
 function ProtectedRoute({ token, currentUser, children }) {
   if (!token) {
@@ -37,6 +39,11 @@ function App() {
   // the token is the user's ID
   const [token, setToken] = useState(localStorage.getItem('token'))
   const [currentUser, setCurrentUser] = useState(null)
+  const [toastData, setToastData] = useState({
+    visible: false,
+    message: '',
+    type: 'normal'
+  })
 
   // if there is a token (userID), then we will get the user associated with that token. 
   // we will then set the current user to that user.
@@ -61,11 +68,18 @@ function App() {
 
   return (
     <>
+      {toastData.visible &&
+        <Toast 
+          message={toastData.message}
+          type={toastData.type}
+          onRemove={()=>setToastData({...toastData, visible: false})}
+        />
+      }
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<WelcomeView />} />
-          <Route path="/signin" element={<SignInView  setToken={setToken}/>} />
-          <Route path="/signup" element={<SignUpView  setToken={setToken}/>} />
+          <Route path="/signin" element={<SignInView  setToken={setToken} setToastData={setToastData} />} />
+          <Route path="/signup" element={<SignUpView  setToken={setToken} setToastData={setToastData} />} />
           <Route
           path="/onboarding"
           element={
@@ -78,7 +92,7 @@ function App() {
           path="/learn"
           element={
             <ProtectedRoute token={token} currentUser={currentUser}>
-              <LearnView currentUser={currentUser} />
+              <LearnView currentUser={currentUser} setToastData={setToastData} />
             </ProtectedRoute>
           }
           />
@@ -86,7 +100,7 @@ function App() {
           path="/lessons/:lessonId/modules/:moduleNumber"
           element={
             <ProtectedRoute token={token} currentUser={currentUser}>
-              <LessonModuleView currentUser={currentUser} />
+              <LessonModuleView currentUser={currentUser} setToastData={setToastData} />
             </ProtectedRoute>
           }
           />
@@ -94,7 +108,7 @@ function App() {
           path="/lessons/:lessonId/quiz/:questionNumber"
           element={
             <ProtectedRoute token={token} currentUser={currentUser}>
-              <LessonQuizView currentUser={currentUser} />
+              <LessonQuizView currentUser={currentUser} setToastData={setToastData} />
             </ProtectedRoute>
           }
           />
@@ -102,7 +116,7 @@ function App() {
           path="/lessons/:lessonId/summary"
           element={
             <ProtectedRoute token={token} currentUser={currentUser}>
-              <LessonSummaryView currentUser={currentUser} setCurrentUser={setCurrentUser} />
+              <LessonSummaryView currentUser={currentUser} setCurrentUser={setCurrentUser} setToastData={setToastData} />
             </ProtectedRoute>
           }
           />
@@ -110,7 +124,7 @@ function App() {
           path="/revise"
           element={
             <ProtectedRoute token={token} currentUser={currentUser}>
-              <ReviseView currentUser={currentUser}/>
+              <ReviseView currentUser={currentUser} setToastData={setToastData}/>
             </ProtectedRoute>
           }
           />
@@ -118,7 +132,7 @@ function App() {
           path="/revise/:lessonId"
           element={
             <ProtectedRoute token={token} currentUser={currentUser}>
-              <ReviseConceptView currentUser={currentUser}/>
+              <ReviseConceptView currentUser={currentUser} setToastData={setToastData}/>
             </ProtectedRoute>
           }
           />
@@ -126,7 +140,7 @@ function App() {
           path="/leaderboard"
           element={
             <ProtectedRoute token={token} currentUser={currentUser}>
-              <LeaderboardView currentUser={currentUser}/>
+              <LeaderboardView currentUser={currentUser} setToastData={setToastData}/>
             </ProtectedRoute>
           }
           />
@@ -134,7 +148,7 @@ function App() {
           path="/profile"
           element={
             <ProtectedRoute token={token} currentUser={currentUser}>
-              <ProfileView currentUser={currentUser} setCurrentUser={setCurrentUser} setToken={setToken}/>
+              <ProfileView currentUser={currentUser} setCurrentUser={setCurrentUser} setToken={setToken} setToastData={setToastData}/>
             </ProtectedRoute>
           }
           />
@@ -142,7 +156,7 @@ function App() {
           path="/profile/edit"
           element={
             <ProtectedRoute token={token} currentUser={currentUser}>
-              <EditProfileView currentUser={currentUser} />
+              <EditProfileView currentUser={currentUser} setCurrentUser={setCurrentUser} setToken={setToken} setToastData={setToastData} />
             </ProtectedRoute>
           }
           />

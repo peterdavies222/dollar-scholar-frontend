@@ -2,10 +2,10 @@ import Nav from '../components/Nav'
 import lessonsData from '../lessonsData'
 import LessonTitle from '../components/LessonTitle'
 import LessonIntro from '../components/LessonIntro'
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import learnConceptInMinutes from '../assets/learn-concept-in-minutes.svg'
 
-export default function LearnView( {currentUser}) {
+export default function LearnView( {currentUser, setToastData}) {
 
     const [activeLesson, setActiveLesson] = useState(null)
 

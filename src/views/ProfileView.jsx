@@ -4,13 +4,20 @@ import PoppingButton from '../components/PoppingButton'
 import pencilIcon from '../assets/pencil.svg'
 import lessonsData from '../lessonsData'
 import LessonBadge from '../components/LessonBadge'
+import { SlAvatar } from '@shoelace-style/shoelace/dist/react'
+import { fetchAvatar } from '../Utils'
 
-export default function ProfileView( {currentUser, setCurrentUser, setToken}) {
+export default function ProfileView( {currentUser, setCurrentUser, setToken, setToastData}) {
 
     const level = currentUser.upToLevel
     const navigate = useNavigate()
 
     const signOut = () => {
+        setToastData({
+            visible: true,
+            message: 'See you soon!',
+            type: 'normal'
+        })
         localStorage.removeItem('token')
         setToken(null)
         setCurrentUser(null)
@@ -45,12 +52,18 @@ export default function ProfileView( {currentUser, setCurrentUser, setToken}) {
                 </header>
                 <div className="profile__content">
                     <div className="profile__userdetails">
-                        <sl-avatar></sl-avatar>
+                        <SlAvatar 
+                            image={fetchAvatar(currentUser.avatar)}
+                        />
                         <p className="profile__username">{currentUser.username}</p>
                     </div>
                     <div className="profile__badges">
                         <h3 className="subheading">Badges</h3>
-                        <div className="badges__container">{userBadges}</div>
+                        <div className="badges__container">
+                            {userBadges.length > 0 ? 
+                            userBadges : 
+                            <p>You haven't earned any badges yet. Complete some lessons and come back to see your collection!</p>}
+                        </div>
                     </div>
                     <div className="profile__content__frame">
                         <PoppingButton 

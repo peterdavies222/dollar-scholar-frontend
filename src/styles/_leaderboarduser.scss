@@ -1,0 +1,36 @@
+.leaderboard__user {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 10px;
+    border-radius: 5px;
+    transition: background-color 0.2s, outline 0.2s;
+    outline: 5px solid transparent;
+
+    &:not(.current__user):hover {
+        background: var(--pink-2);
+        outline: 5px solid var(--pink-2);
+    }
+
+    &.current__user {
+        background: var(--pink-3);
+        outline: 5px solid var(--pink-3);
+    }
+
+    div {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+
+        .placing {
+            font-size: 1.5rem;
+            font-family: 'filson-soft', system-ui, sans-serif;
+            font-weight: 700;
+            width: 2em;
+        }
+
+        .username {
+            font-weight: 700;
+        }
+    }
+}

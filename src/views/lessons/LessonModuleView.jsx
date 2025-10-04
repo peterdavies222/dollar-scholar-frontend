@@ -22,15 +22,15 @@ export default function LessonModuleView() {
 
     const lessonCards = module.cards
     
-    const [openLessonCard, setOpenLessonCard] = useState(null)
+    const [openLessonCards, setOpenLessonCards] = useState([])
 
     const lessonCardsEls = lessonCards.map((card, i) => {
         return (
             <LessonCard 
                 key={i}
-                open={()=>setOpenLessonCard(i)}
-                close={()=>setOpenLessonCard(null)}
-                cardOpen={openLessonCard === i ? true : false}
+                open={()=>setOpenLessonCards(prev => [...prev, i])}
+                close={()=>setOpenLessonCards(prev => prev.filter(index => index !== i))}
+                cardOpen={openLessonCards.includes(i) ? true : false}
                 icon={card.icon}
                 title={card.cardTitle}
                 description={card.description}

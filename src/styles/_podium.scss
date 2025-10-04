@@ -1,0 +1,65 @@
+.podium {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: auto;
+    align-items: flex-end;
+    gap: 30px;
+
+    .podium__place {
+        
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        gap: 20px;
+
+        .profile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        sl-avatar {
+            --size: 90px;
+            margin-bottom: 10px;
+        }
+
+        .profile__username {
+            font-family: 'filson-soft', system-ui, sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+
+        .profile__lessons-count {
+            color: var(--grey-6);
+        }
+
+        .podium__stand {
+            background: var(--pink-3);
+            color: var(--pink-8);
+            font-size: 3rem;
+            font-family: 'filson-soft', system-ui, sans-serif;
+            font-weight: 700;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 20px 20px 0 0;
+        }
+
+        &--1 .podium__stand {
+            height: 150px;
+        }
+
+        &--2 .podium__stand {
+            height: 130px;
+        }
+
+        &--3 .podium__stand {
+            height: 110px;
+        }
+
+    }
+}

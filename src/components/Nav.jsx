@@ -3,6 +3,8 @@ import brandmark from '../assets/brandmark.svg'
 import learnIcon from '../assets/learn-icon.svg'
 import reviseIcon from '../assets/revise-icon.svg'
 import leaderboardIcon from '../assets/leaderboard-icon.svg'
+import { fetchAvatar } from '../Utils'
+import { SlAvatar } from '@shoelace-style/shoelace/dist/react'
 
 export default function Nav({currentUser, section}) {
     const linkClick = () => {
@@ -35,7 +37,7 @@ export default function Nav({currentUser, section}) {
                     </ul>
                 </div>
                 <Link onClick={linkClick} className={`nav__link profile ${section==="profile" ? "active" : ""}`} to="/profile">
-                    <div className="avatar"></div>
+                    <SlAvatar image={fetchAvatar(currentUser.avatar)} />
                     <p>{currentUser.username}</p>
                 </Link>
             </nav>

@@ -21,10 +21,34 @@ class UserAPI {
         return response.data
     }
 
-    async completeLesson(lessonId, userId, userUpToLevel) {
+    async completeLesson(lessonId, userId, userUpToLevel, recentlyCompletedLessonsCount) {
         const response = await axios.patch(`${API_BASE}/user/${userId}`, {
-            upToLevel: userUpToLevel > lessonId ? userUpToLevel : lessonId + 1
+            upToLevel: userUpToLevel > lessonId ? userUpToLevel : Number(lessonId) + 1,
+            recentlyCompletedLessonsCount: recentlyCompletedLessonsCount + 1
         })
+        return response.data
+    }
+
+    async updateProfileWithAvatar(userId, formData) {
+        const response = await axios.patch(`${API_BASE}/user/editProfileWithAvatar/${userId}`, 
+            formData,
+            {
+                headers: { "Content-Type": "multipart/form-data" }
+            }
+        )
+        return response.data
+    }
+
+    async updateProfileWithoutAvatar(userId, formData) {
+        if (!userId || !formData) return
+        const response = await axios.patch(`${API_BASE}/user/editProfileWithoutAvatar/${userId}`,  
+            formData
+        )
+        return response.data
+    }
+
+    async deleteAccount(userId) {
+        const response = await axios.delete(`${API_BASE}/user/${userId}`,)
         return response.data
     }
 }

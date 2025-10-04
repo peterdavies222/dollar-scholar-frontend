@@ -2,6 +2,7 @@ import PoppingButton from '../components/PoppingButton'
 import WelcomeCard from '../components/WelcomeCard'
 import {Link} from 'react-router-dom'
 import welcomeCards from '../welcomeCards'
+import { useEffect } from 'react'
 
 export default function WelcomeView() {
 

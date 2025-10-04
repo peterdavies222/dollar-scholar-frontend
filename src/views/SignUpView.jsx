@@ -6,7 +6,7 @@ import mascot from '../assets/mascot-2.svg'
 import brandmark from '../assets/brandmark.svg'
 import PoppingButton from '../components/PoppingButton'
 
-export default function SignUpView({ setToken }) {
+export default function SignUpView({ setToken, setToastData }) {
 
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
@@ -21,16 +21,33 @@ export default function SignUpView({ setToken }) {
         formData.append('username', username)
         formData.append('password', password)
 
-        const result = await AuthAPI.signUpUser(formData)
-        console.log('result = ', result)
-
-        if(!result || !result.token) {
-            alert('Sign in failed (trying to sign up)')
-            return
-        } else {
-            setToken(result.token)
-            localStorage.setItem('token', result.token)
-            navigate('/onboarding');
+        try {
+            const result = await AuthAPI.signUpUser(formData)
+            console.log('result = ', result)
+    
+            if(!result || !result.token) {
+                setToastData({
+                    visible: true,
+                    message: 'Failed to create account',
+                    type: 'error'
+                })
+                return
+            } else {
+                setToken(result.token)
+                localStorage.setItem('token', result.token)
+                navigate('/onboarding');
+                setToastData({
+                    visible: true,
+                    message: 'Welcome',
+                    type: 'normal'
+                })
+            }
+        }catch(error) {
+            setToastData({
+                visible: true,
+                type: 'error',
+                message: error.error
+            })
         }
     }
 

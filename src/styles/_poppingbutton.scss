@@ -20,6 +20,12 @@
         --text-color: var(--white);
     }
 
+    &.red {
+        --outline-color: var(--red-3);
+        --inner-color: var(--red-1);
+        --text-color: var(--white);
+    }
+
     padding: 4px 4px 8px 4px;
     border-radius: 15px;
     border: none;

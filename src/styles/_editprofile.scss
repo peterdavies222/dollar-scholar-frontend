@@ -1,0 +1,113 @@
+.profile.edit {
+
+    header {
+        
+        // position: relative;
+
+        &>div {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 9999;
+
+            button {
+                margin-block: 30px;
+            }
+
+            a {
+                color: var(--pink-8);
+                font-family: 'filson-soft', system-ui, sans-serif;
+                font-weight: bold;
+            }
+        }
+    }
+
+    .profile__content {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .editprofile__frame.profilepic {
+        
+        div {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        input[type="file"]{
+            display: none;
+        }
+
+        .avatar-button {
+            font-family: 'basic-sans', system-ui, sans-serif;
+            padding: 5px 10px;
+            background: var(--white);
+            outline: 1px solid var(--grey-3);
+            border-radius: 9999px;
+            font-weight: 500;
+            cursor: pointer;
+        }
+    }
+
+    
+
+    .editprofile__frame {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        sl-avatar {
+            --size: 90px;
+        }
+
+        .subheading {
+            margin-bottom: 0;
+        }
+
+        label {
+            font-weight: 700;
+            font-family: 'filson-soft', system-ui, sans-serif;
+        }
+
+        input:not([type="file"]) {
+            align-self: flex-start;
+            width: 450px;
+            max-width: 100%;
+            padding: 10px 15px;
+            border-radius: 9999px;
+            border: 2px solid var(--grey-3);
+            background-color: var(--white);
+            font-size: 1rem;
+        }
+    }
+
+    hr {
+        margin-block: 60px;
+        border: none;
+        height: 4px;
+        background: var(--grey-3);
+        border-radius: 9999px;
+    }
+
+    .editprofile__frame.delete {
+
+        padding: 2rem;
+        border: 4px solid var(--red-1);
+        border-radius: 20px;
+
+        h3 {
+            color: var(--red-3);
+        }
+    }
+
+    #submit-btn {
+        display: none;
+    }
+    
+}
