@@ -10,32 +10,37 @@ export default function SignInView({ setToken, setToastData }) {
 
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
+    const [loading, setLoading] = useState(false)
 
     const navigate = useNavigate();
 
     const handleSubmit = async e => {
         e.preventDefault()
 
+        setLoading(true)
+
         if(!username || !password) {
-            return (
-                setToastData({
-                    visible: true,
-                    message: 'Username and password required.',
-                    type: 'error'
-                })
-            )
+            setToastData({
+                visible: true,
+                message: 'Username and password required.',
+                type: 'error'
+            })
+            setLoading(false)
+            return
         }
 
         const result = await AuthAPI.signInUser({
             username,
             password
         })
+
         if(!result.token) {
             setToastData({
                 visible: true,
                 message: 'Username or password incorrect',
                 type: 'error'
             })
+            setLoading(false)
             return
 
         } else {
@@ -46,8 +51,8 @@ export default function SignInView({ setToken, setToastData }) {
                 visible: true,
                 message: 'Welcome to Dollar Scholar'
             })
+            setLoading(false)
         }
-
     }
 
     return (
@@ -71,6 +76,7 @@ export default function SignInView({ setToken, setToastData }) {
                         </div>
                         <div className="form-group centered">
                             <PoppingButton 
+                                loading={loading}
                                 type="submit"
                                 label="Sign in"
                                 buttonColor="green"

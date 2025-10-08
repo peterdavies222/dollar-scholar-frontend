@@ -23,13 +23,15 @@ import ReviseConceptView from './views/ReviseConceptView'
 
 import Toast from './Toast.jsx'
 
+import Splash from './views/Splash.jsx'
+
 // this is a function which will redirect to the signin page if there is no user logged in (aka no token)
 function ProtectedRoute({ token, currentUser, children }) {
   if (!token) {
     return <Navigate to="/signin" replace />;
   }
   if (!currentUser) {
-    return <div>Loading...</div>
+    return <Splash />
   }
   return children;
 }

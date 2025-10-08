@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom"
+import { useParams, Link } from "react-router-dom"
 import lessonsData from "../lessonsData"
 import Nav from "../components/Nav"
 import PoppingButton from "../components/PoppingButton"
@@ -31,7 +31,7 @@ export default function ReviseConceptView({currentUser}) {
             />
             <main>
                 <header className="main">
-                    <a href="/revise"><ChevronLeft />Back to concept book</a>
+                    <Link to="/revise"><ChevronLeft />Back to concept book</Link>
                     <h1>{lesson.title}</h1>
                 </header>
                 <div className="modules">
