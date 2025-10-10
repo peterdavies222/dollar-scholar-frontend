@@ -1,41 +1,19 @@
 // lesson 1 imports
 import RocketIcon from './assets/lesson-icons/lesson-1/rocket.svg?react'
-import IncomeIcon from './assets/lesson-icons/lesson-1/income.svg?react'
-import ExpensesIcon from './assets/lesson-icons/lesson-1/expenses.svg?react'
-import SecurityIcon from './assets/lesson-icons/lesson-1/security.svg?react'
-import OpportunitiesIcon from './assets/lesson-icons/lesson-1/opportunities.svg?react'
-import SavingIcon from './assets/lesson-icons/lesson-1/saving.svg?react'
-import SpendingIcon from './assets/lesson-icons/lesson-1/spending.svg?react'
-import InvestingIcon from './assets/lesson-icons/lesson-1/investing.svg?react'
-import ProtectingIcon from './assets/lesson-icons/lesson-1/protecting.svg?react'
-
 import Badge1 from './assets/lesson-icons/lesson-1/badge.svg?react'
 
 // lesson 2 imports
 import WalletIcon from './assets/lesson-icons/lesson-2/wallet.svg?react'
-import FeesIcon from './assets/lesson-icons/lesson-2/fees.svg?react'
-import AtmIcon from './assets/lesson-icons/lesson-2/atm.svg?react'
-import ServiceIcon from './assets/lesson-icons/lesson-2/service.svg?react'
-import CreditIcon from './assets/lesson-icons/lesson-2/credit.svg?react'
-import InquiryIcon from './assets/lesson-icons/lesson-2/inquiry.svg?react'
-import DefaultsIcon from './assets/lesson-icons/lesson-2/defaults.svg?react'
-import SavingsIcon from './assets/lesson-icons/lesson-2/savings.svg?react'
-import TransactionIcon from './assets/lesson-icons/lesson-2/transaction.svg?react'
-
 
 // lesson 3 imports
-import SharesIcon from './assets/lesson-icons/lesson-3/shares.svg?react'
-import BondsIcon from './assets/lesson-icons/lesson-3/bonds.svg?react'
-import ManagedFundsIcon from './assets/lesson-icons/lesson-3/managed-funds.svg?react'
-import HighInterestIcon from './assets/lesson-icons/lesson-3/high-interest.svg?react'
-import CompoundInterestIcon from './assets/lesson-icons/lesson-3/compound-interest.svg?react'
 
-// lesson 4 icons
-import NeedsIcon from './assets/lesson-icons/lesson-4/needs.svg?react'
-import WantsIcon from './assets/lesson-icons/lesson-4/wants.svg?react'
-import SavingsGoalsIcon from './assets/lesson-icons/lesson-4/savings-goals.svg?react'
-import BnplIcon from './assets/lesson-icons/lesson-4/bnpl.svg?react'
-import DebtTrapIcon from './assets/lesson-icons/lesson-4/debt-trap.svg?react'
+// lesson 4 imports
+
+// lesson 4 imports
+
+// lesson 5 imports
+
+// lesson 6 imports
 
 // card icons
 import CoinIcon from './assets/lesson-icons/coin.svg?react'
@@ -567,12 +545,12 @@ export default [
                 ],
                 cards: [
                     {
-                        icon: BnplIcon,
+                        icon: CoinIcon,
                         cardTitle: "BNPL service",
                         description: "A service that lets you split purchases into instalments."
                     },
                     {
-                        icon: DebtTrapIcon,
+                        icon: BankIcon,
                         cardTitle: "Debt trap",
                         description: "When unpaid BNPL balances accumulate and become hard to manage."
                     }
