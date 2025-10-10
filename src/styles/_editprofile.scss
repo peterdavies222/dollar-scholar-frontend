@@ -1,15 +1,17 @@
 .profile.edit {
 
-    header {
+    header.main {
         
-        // position: relative;
+        position: sticky;
+        width: calc(100% + 2 * var(--spacing));
+        margin-inline: calc(-1 * var(--spacing));
 
         &>div {
             display: flex;
             align-items: center;
             gap: 30px;
             position: absolute;
-            right: 0;
+            right: var(--spacing);
             top: 50%;
             transform: translateY(-50%);
             z-index: 9999;
@@ -108,6 +110,25 @@
 
     #submit-btn {
         display: none;
+    }
+
+    @media (width < 600px) {
+
+        header.main {
+            justify-content: space-between;
+        }
+
+        header.main > div {
+            position: static;
+            transform: none;
+            flex-direction: column;
+            gap: 10px;
+
+            button {
+                margin: 0;
+                order: -1;
+            }
+        }
     }
     
 }

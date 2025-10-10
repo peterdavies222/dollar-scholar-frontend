@@ -1,8 +1,10 @@
 import LessonCard from "./LessonCard"
-import { useState } from "react"
+import { useState, useRef, useEffect } from "react"
 
 export default function ReviseModule({module}) {
     const [openCards, setOpenCards] = useState([])
+    const cardsContainer = useRef()
+    const cardsButtons = useRef()
     const paragraphs = module.introductionParagraphs.map((paragraph, i) => {
         return (
             <p key={i}>{paragraph}</p>
@@ -21,14 +23,48 @@ export default function ReviseModule({module}) {
             />
         )
     })
+
+    useEffect(() => {
+    
+    function cardScrollerButtons() {
+        if(!cardsContainer.current) return
+        const computedStyle = window.getComputedStyle(cardsContainer.current)
+        const inlinePaddingPx = computedStyle.paddingInlineStart || computedStyle.paddingLeft
+        const inlinePadding = parseInt(inlinePaddingPx)
+        if(cardsContainer.current.clientWidth < cardsContainer.current.scrollWidth - inlinePadding) {
+            cardsButtons.current.style.display = 'flex'
+        } else {
+            cardsButtons.current.style.display = 'none'
+        }
+    }
+
+    cardScrollerButtons()
+    window.addEventListener('resize', cardScrollerButtons)
+    return ()=> {
+        window.removeEventListener('resize', cardScrollerButtons)
+    }
+    }, [])
+
+    const scrollLeft = () => {
+        cardsContainer.current.scrollLeft -= 150
+    }
+
+    const scrollRight = () => {
+        cardsContainer.current.scrollLeft += 150
+    }
+
     return (
         <div className="revise-module">
             <h2>{module.moduleTitle}</h2>
             <div className="paragraphs">
                 {paragraphs}
             </div>
-            <div className="cards">
+            <div ref={cardsContainer} className="cards">
                 {cards}
+            </div>
+            <div ref={cardsButtons}>
+                <button onClick={scrollLeft}></button>
+                <button onClick={scrollRight}></button>
             </div>
         </div>
     )

@@ -6,7 +6,7 @@ export default function LeaderboardUser(props) {
         <div className={`leaderboard__user ${props.isCurrentUser ? 'current__user' : null}`}>
             <div>
                 <p className="placing">{props.placing}</p>
-                <SlAvatar />
+                <SlAvatar image={fetchAvatar(props.avatar)}/>
                 <p className="username">{props.isCurrentUser ? 'You' : props.username}</p>
             </div>
             <p className="lessons__count">{`${props.lessonsCount} lesson${props.lessonsCount == 1 ? '' : 's'}`}</p>

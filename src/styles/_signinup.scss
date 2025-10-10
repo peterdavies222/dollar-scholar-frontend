@@ -1,8 +1,16 @@
 .signinup-header {
     position: fixed;
     width: 100%;
-    padding: 45px var(--spacing);
+    padding: calc(var(--spacing) / 2) var(--spacing);
     z-index: 1;
+
+    @media (width < 1024px) {
+        position: static;
+    }
+
+    @media (width < 600px) {
+        padding: var(--spacing);
+    }
 }
 
 .signinup {
@@ -10,6 +18,18 @@
     display: flex;
     padding: 0;
     width: 100%;
+    position: relative;
+
+    &::before {
+        content: "";
+        position: absolute;
+        width: calc(50vw - 750px + 1%);
+        height: 100%;
+        right: 99%;
+        top: 0;
+        background: var(--green-3);
+        transition: all 0s;
+    }
 
     .signinup_form_container {
         background-color: var(--green-3);
@@ -23,10 +43,15 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-        padding: 90px;
+        padding: var(--spacing);
+
+        &::after {
+            
+
+        }
 
         h2 {
-            font-size: 2rem;
+            font-size: var(--subtitles);
             margin-bottom: 60px;
             width: 60%;
             color: var(--pink-7);
@@ -87,6 +112,56 @@
         width: 50%;
         display: grid;
         place-items: center;
+    }
+
+    @media (width < 1024px) {
+        flex-direction: column;
+        min-height: 100vh;
+
+        .signinup_form_container, .image-container {
+            width: 100%;
+            min-height: unset;
+        }
+
+        .signinup_form_container {
+            mask-image: unset;
+            border-radius: var(--spacing) var(--spacing) 0 0;
+            padding-block: calc(2 * var(--spacing));
+            flex-grow: 1;
+            justify-content: flex-start;
+
+            &::after {
+                content: "";
+
+            }
+        }
+
+        h2, form {
+            margin-inline: auto;
+        }
+        
+        .image-container {
+            order: -1;
+            width: 200px;
+            max-width: calc(100% - 2*var(--spacing));
+            aspect-ratio: 2;
+            overflow: hidden;
+            margin-inline: auto;
+
+            img {
+                width: 100%;
+            }
+        }
+    } 
+
+    @media (width < 600px) {
+        
+        .signinup_form_container {
+
+            form, h2 {
+                width: 90%;
+            }
+        }
     }
 }
 

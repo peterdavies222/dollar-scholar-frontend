@@ -8,6 +8,7 @@ export default function CloseLesson(props) {
 
     const portalRoot = document.getElementById('portal-root')
     const dialogRef = useRef(null)
+    if(!portalRoot) return
 
     useEffect(()=> {
         if(!dialogRef.current) return

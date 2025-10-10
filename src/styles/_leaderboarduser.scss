@@ -26,11 +26,22 @@
             font-size: 1.5rem;
             font-family: 'filson-soft', system-ui, sans-serif;
             font-weight: 700;
-            width: 2em;
+            min-width: 2em;
         }
 
         .username {
             font-weight: 700;
+        }
+    }
+
+    @media (width < 600px) {
+
+        div .placing {
+            min-width: 1.5em;
+        }
+
+        sl-avatar {
+            --size: 2rem;
         }
     }
 }

@@ -10,6 +10,7 @@ export default function SignUpView({ setToken, setToastData }) {
 
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
+    const [loading, setLoading] = useState(false)
 
     const navigate = useNavigate();
 
@@ -17,6 +18,7 @@ export default function SignUpView({ setToken, setToastData }) {
     const handleSubmit = async e => {
         e.preventDefault()
 
+        setLoading(true)
         const formData = new FormData()
         formData.append('username', username)
         formData.append('password', password)
@@ -31,6 +33,7 @@ export default function SignUpView({ setToken, setToastData }) {
                     message: 'Failed to create account',
                     type: 'error'
                 })
+                setLoading(false)
                 return
             } else {
                 setToken(result.token)
@@ -41,6 +44,7 @@ export default function SignUpView({ setToken, setToastData }) {
                     message: 'Welcome',
                     type: 'normal'
                 })
+                setLoading(false)
             }
         }catch(error) {
             setToastData({
@@ -48,6 +52,7 @@ export default function SignUpView({ setToken, setToastData }) {
                 type: 'error',
                 message: error.error
             })
+            setLoading(false)
         }
     }
 
@@ -75,6 +80,7 @@ export default function SignUpView({ setToken, setToastData }) {
                                 type="submit"
                                 label="Get started"
                                 buttonColor="green"
+                                loading={loading}
                             />
                             <p className="signinup-prompt">Already a member? <Link to="/signin">Sign in</Link>.</p>
                         </div>

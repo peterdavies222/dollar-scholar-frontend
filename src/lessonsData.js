@@ -13,8 +13,42 @@ import Badge1 from './assets/lesson-icons/lesson-1/badge.svg?react'
 
 // lesson 2 imports
 import WalletIcon from './assets/lesson-icons/lesson-2/wallet.svg?react'
+import FeesIcon from './assets/lesson-icons/lesson-2/fees.svg?react'
+import AtmIcon from './assets/lesson-icons/lesson-2/atm.svg?react'
+import ServiceIcon from './assets/lesson-icons/lesson-2/service.svg?react'
+import CreditIcon from './assets/lesson-icons/lesson-2/credit.svg?react'
+import InquiryIcon from './assets/lesson-icons/lesson-2/inquiry.svg?react'
+import DefaultsIcon from './assets/lesson-icons/lesson-2/defaults.svg?react'
+import SavingsIcon from './assets/lesson-icons/lesson-2/savings.svg?react'
+import TransactionIcon from './assets/lesson-icons/lesson-2/transaction.svg?react'
+
 
 // lesson 3 imports
+import SharesIcon from './assets/lesson-icons/lesson-3/shares.svg?react'
+import BondsIcon from './assets/lesson-icons/lesson-3/bonds.svg?react'
+import ManagedFundsIcon from './assets/lesson-icons/lesson-3/managed-funds.svg?react'
+import HighInterestIcon from './assets/lesson-icons/lesson-3/high-interest.svg?react'
+import CompoundInterestIcon from './assets/lesson-icons/lesson-3/compound-interest.svg?react'
+
+// lesson 4 icons
+import NeedsIcon from './assets/lesson-icons/lesson-4/needs.svg?react'
+import WantsIcon from './assets/lesson-icons/lesson-4/wants.svg?react'
+import SavingsGoalsIcon from './assets/lesson-icons/lesson-4/savings-goals.svg?react'
+import BnplIcon from './assets/lesson-icons/lesson-4/bnpl.svg?react'
+import DebtTrapIcon from './assets/lesson-icons/lesson-4/debt-trap.svg?react'
+
+// card icons
+import CoinIcon from './assets/lesson-icons/coin.svg?react'
+import PiggyBankIcon from './assets/lesson-icons/piggy-bank.svg?react'
+import TrendIcon from './assets/lesson-icons/trend.svg?react'
+import BankIcon from './assets/lesson-icons/bank.svg?react'
+import CalendarIcon from './assets/lesson-icons/calendar.svg?react'
+import ShoppingIcon from './assets/lesson-icons/shopping.svg?react'
+import ShieldIcon from './assets/lesson-icons/shield.svg?react'
+import PlantIcon from './assets/lesson-icons/plant.svg?react'
+import LightBulbIcon from './assets/lesson-icons/light-bulb.svg?react'
+import LockIcon from './assets/lesson-icons/lock.svg?react'
+
 
 export default [
     {
@@ -40,12 +74,12 @@ export default [
                 ],
                 cards: [
                     {
-                        icon: IncomeIcon,
+                        icon: CoinIcon,
                         cardTitle: "Income",
                         description: "Money you receive from work, investments, or other sources."
                     },
                     {
-                        icon: ExpensesIcon,
+                        icon: ShoppingIcon,
                         cardTitle: "Expenses",
                         description: "Money you spend on needs and wants."
                     }
@@ -60,12 +94,12 @@ export default [
                 ],
                 cards: [
                     {
-                        icon: SecurityIcon,
+                        icon: ShieldIcon,
                         cardTitle: "Financial security",
                         description: "Confidence that you can handle unexpected expenses."
                     },
                     {
-                        icon: OpportunitiesIcon,
+                        icon: LightBulbIcon,
                         cardTitle: "Opportunities",
                         description: "Money choices that allow travel, study, or investing."
                     }
@@ -80,22 +114,22 @@ export default [
                 ],
                 cards: [
                     {
-                        icon: SavingIcon,
+                        icon: PiggyBankIcon,
                         cardTitle: "Saving",
                         description: "Putting aside money for future goals or emergencies."
                     },
                     {
-                        icon: SpendingIcon,
+                        icon: ShoppingIcon,
                         cardTitle: "Spending",
                         description: "Using money for daily needs and wants."
                     },
                     {
-                        icon: InvestingIcon,
+                        icon: PlantIcon,
                         cardTitle: "Investing",
                         description: "Growing your money through assets like shares or property."
                     },
                     {
-                        icon: ProtectingIcon,
+                        icon: ShieldIcon,
                         cardTitle: "Protecting",
                         description: "Safeguarding money with insurance or secure accounts."
                     }
@@ -225,17 +259,17 @@ export default [
                 ],
                 cards: [
                     {
-                        icon: InvestingIcon,
+                        icon: CoinIcon,
                         cardTitle: "Fees",
                         description: "Banks may charge account keeping or transaction fees."
                     },
                     {
-                        icon: InvestingIcon,
+                        icon: BankIcon,
                         cardTitle: "ATM access",
                         description: "Check how easy it is to withdraw cash without extra charges."
                     },
                     {
-                        icon: InvestingIcon,
+                        icon: LightBulbIcon,
                         cardTitle: "Customer service",
                         description: "Good support helps when problems arise or questions come up."
                     }
@@ -250,17 +284,17 @@ export default [
                 ],
                 cards: [
                     {
-                        icon: InvestingIcon,
+                        icon: TrendIcon,
                         cardTitle: "Credit score",
                         description: "A number that shows how reliable you are at repaying money."
                     },
                     {
-                        icon: InvestingIcon,
+                        icon: LockIcon,
                         cardTitle: "Hard inquiry",
                         description: "When a lender checks your report before approving credit."
                     },
                     {
-                        icon: InvestingIcon,
+                        icon: CalendarIcon,
                         cardTitle: "Defaults",
                         description: "Missed payments that can lower your score and limit options."
                     }
@@ -275,12 +309,12 @@ export default [
                 ],
                 cards: [
                     {
-                        icon: InvestingIcon,
+                        icon: PiggyBankIcon,
                         cardTitle: "Savings account",
                         description: "An account that earns interest on the money you deposit."
                     },
                     {
-                        icon: InvestingIcon,
+                        icon: BankIcon,
                         cardTitle: "Transaction account",
                         description: "An everyday account for spending and paying bills."
                     }
@@ -409,17 +443,17 @@ export default [
                 ],
                 cards: [
                     {
-                        icon: InvestingIcon,
+                        icon: TrendIcon,
                         cardTitle: "Shares",
                         description: "Buying a portion of a company to earn potential growth and dividends."
                     },
                     {
-                        icon: InvestingIcon,
+                        icon: CoinIcon,
                         cardTitle: "Bonds",
                         description: "Loans you give to governments or companies in exchange for interest payments."
                     },
                     {
-                        icon: InvestingIcon,
+                        icon: LightBulbIcon,
                         cardTitle: "Managed funds",
                         description: "A pool of money from many investors managed by professionals."
                     }
@@ -434,12 +468,12 @@ export default [
                 ],
                 cards: [
                     {
-                        icon: InvestingIcon,
+                        icon: CoinIcon,
                         cardTitle: "High-interest savings account",
                         description: "An account designed to earn more interest than a regular savings account."
                     },
                     {
-                        icon: InvestingIcon,
+                        icon: PlantIcon,
                         cardTitle: "Compound interest",
                         description: "Interest that earns interest on both your initial deposit and previous interest."
                     }
@@ -508,17 +542,17 @@ export default [
                 ],
                 cards: [
                     {
-                        icon: InvestingIcon,
+                        icon: BankIcon,
                         cardTitle: "Needs",
                         description: "Essentials like food, rent, and bills."
                     },
                     {
-                        icon: InvestingIcon,
+                        icon: ShoppingIcon,
                         cardTitle: "Wants",
                         description: "Non-essential items or experiences you enjoy."
                     },
                     {
-                        icon: InvestingIcon,
+                        icon: CalendarIcon,
                         cardTitle: "Savings goals",
                         description: "Money set aside for future purchases or emergencies."
                     }
@@ -533,12 +567,12 @@ export default [
                 ],
                 cards: [
                     {
-                        icon: InvestingIcon,
+                        icon: BnplIcon,
                         cardTitle: "BNPL service",
                         description: "A service that lets you split purchases into instalments."
                     },
                     {
-                        icon: InvestingIcon,
+                        icon: DebtTrapIcon,
                         cardTitle: "Debt trap",
                         description: "When unpaid BNPL balances accumulate and become hard to manage."
                     }
@@ -608,12 +642,12 @@ export default [
                 ],
                 cards: [
                     {
-                        icon: InvestingIcon,
+                        icon: LockIcon,
                         cardTitle: "Phishing",
                         description: "Emails or messages pretending to be from legitimate sources to steal info."
                     },
                     {
-                        icon: InvestingIcon,
+                        icon: ShieldIcon,
                         cardTitle: "Identity theft",
                         description: "When someone uses your personal info to commit fraud."
                     }
@@ -628,12 +662,12 @@ export default [
                 ],
                 cards: [
                     {
-                        icon: InvestingIcon,
+                        icon: LockIcon,
                         cardTitle: "Strong password",
                         description: "A password that is hard to guess, mixing letters, numbers, and symbols."
                     },
                     {
-                        icon: InvestingIcon,
+                        icon: LightBulbIcon,
                         cardTitle: "Two-factor authentication",
                         description: "Extra verification step beyond just a password."
                     }
@@ -648,17 +682,17 @@ export default [
                 ],
                 cards: [
                     {
-                        icon: InvestingIcon,
+                        icon: TrendIcon,
                         cardTitle: "Good debt",
                         description: "Debt used to invest in assets or improve long-term value."
                     },
                     {
-                        icon: InvestingIcon,
+                        icon: CalendarIcon,
                         cardTitle: "Bad debt",
                         description: "Debt used for things that quickly lose value, like overspending."
                     },
                     {
-                        icon: InvestingIcon,
+                        icon: PiggyBankIcon,
                         cardTitle: "Emergency fund",
                         description: "Savings set aside for unexpected expenses or loss of income."
                     }
@@ -738,12 +772,12 @@ export default [
                 ],
                 cards: [
                     {
-                        icon: InvestingIcon,
+                        icon: CoinIcon,
                         cardTitle: "Employer contributions",
                         description: "Money your employer adds to your super fund on your behalf."
                     },
                     {
-                        icon: InvestingIcon,
+                        icon: BankIcon,
                         cardTitle: "Super fund",
                         description: "A managed fund where your retirement savings are held and invested."
                     }
@@ -758,12 +792,12 @@ export default [
                 ],
                 cards: [
                     {
-                        icon: InvestingIcon,
+                        icon: PlantIcon,
                         cardTitle: "Compound growth",
                         description: "Interest and investment growth that builds on itself over time."
                     },
                     {
-                        icon: InvestingIcon,
+                        icon: CalendarIcon,
                         cardTitle: "Retirement account",
                         description: "A designated account for saving and investing for your future."
                     }

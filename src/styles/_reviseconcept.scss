@@ -1,6 +1,18 @@
 .revise-concept {
 
     main {
+
+        padding-top: 0;
+        height: 100vh;
+        overflow: scroll;
+
+        header {
+            width: calc(100% + 2 * var(--spacing));
+            margin-inline: calc(-1 * var(--spacing));
+            padding-inline: var(--spacing);
+            position: sticky;
+        }
+
         header a {
             margin-bottom: 10px;
             display: block;
@@ -12,20 +24,44 @@
         h2 {
             margin-bottom: 20px;
         }
+
+        .revise-module:not(:last-of-type)::after {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 4px;
+            border-radius: 9999px;
+            background-color: var(--pink-3);
+            margin-block: 60px;
+        }
+
         .revise-module .paragraphs p {
             margin-bottom: 20px;
             max-width: 50%;
         }
         .cards {
             display: flex;
-            flex-wrap: wrap;
             gap: 20px;
-            padding-block: 30px 60px;
+            padding-top: 30px;
+            overflow: auto;
         }
         a {
             margin-inline: auto;
         }
         
+        @media (width < 1024px) {
+
+            padding-bottom: 120px;
+
+            header {
+                padding-block: calc(2 * var(--spacing));
+                top: calc(-1 * var(--spacing));
+            }
+            
+            .revise-module .paragraphs p {
+                max-width: 100%;
+            }
+        }
     }
 
 }

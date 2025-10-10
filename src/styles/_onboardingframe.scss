@@ -30,4 +30,30 @@
             margin-top: 64px !important;
         }
     }
+
+    @media (width < 1024px) {
+        flex-direction: column;
+        gap: 45px;
+        
+
+        img {
+            width: min(200px, 100%);
+            max-width: unset;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        p {
+            font-size: 1rem;
+            text-align: center;
+            width: min(100%, 400px);
+            margin-inline: auto;
+        }
+
+        button {
+            margin-inline: auto;
+        }
+    }
 }

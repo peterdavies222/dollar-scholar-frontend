@@ -7,7 +7,7 @@ export default function Podium({firstPlace, secondPlace, thirdPlace, currentUser
         <div className="podium">
             <div className="podium__place podium__place--2">
                 <div className="profile">
-                    <SlAvatar image={fetchAvatar(secondPlace?.avatar) || ''}/>
+                    <SlAvatar className={`${secondPlace.username === currentUser.username ? 'outlined' : ''}`} image={fetchAvatar(secondPlace?.avatar) || ''}/>
                     <p className="profile__username">{secondPlace?.username === currentUser?.username ? 'You' : secondPlace?.username}</p>
                     <p className="profile__lessons-count">{`${secondPlace?.recentlyCompletedLessonsCount} lesson${secondPlace?.recentlyCompletedLessonsCount == 1 ? '' : 's'}` || 'placeholder'}</p>
                 </div>
@@ -17,7 +17,7 @@ export default function Podium({firstPlace, secondPlace, thirdPlace, currentUser
             </div>
             <div className="podium__place podium__place--1">
                 <div className="profile">
-                    <SlAvatar image={fetchAvatar(firstPlace?.avatar) || ''}/>
+                    <SlAvatar className={`${firstPlace.username === currentUser.username ? 'outlined' : ''}`} image={fetchAvatar(firstPlace?.avatar) || ''}/>
                     <p className="profile__username">{firstPlace?.username === currentUser?.username ? 'You' : firstPlace?.username}</p>
                     <p className="profile__lessons-count">{`${firstPlace?.recentlyCompletedLessonsCount} lesson${firstPlace?.recentlyCompletedLessonsCount == 1 ? '' : 's'}` || 'placeholder'}</p>
                 </div>
@@ -27,7 +27,7 @@ export default function Podium({firstPlace, secondPlace, thirdPlace, currentUser
             </div>
             <div className="podium__place podium__place--3">
                 <div className="profile">
-                    <SlAvatar image={fetchAvatar(thirdPlace?.avatar) || ''}/>
+                    <SlAvatar className={`${thirdPlace.username === currentUser.username ? 'outlined' : ''}`} image={fetchAvatar(thirdPlace?.avatar) || ''}/>
                     <p className="profile__username">{thirdPlace?.username === currentUser?.username ? 'You' : thirdPlace?.username}</p>
                     <p className="profile__lessons-count">{`${thirdPlace?.recentlyCompletedLessonsCount} lesson${thirdPlace?.recentlyCompletedLessonsCount == 1 ? '' : 's'}` || 'placeholder'}</p>
                 </div>

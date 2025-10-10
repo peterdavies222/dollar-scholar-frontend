@@ -7,6 +7,7 @@ import {Link} from 'react-router-dom'
 export default function CheckAnswer(props) {
 
     const portalRoot = document.getElementById('portal-root')
+    if(!portalRoot) return
 
     const checkAnswerRef = useRef(null)
     useEffect(()=> {

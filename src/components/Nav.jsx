@@ -34,9 +34,16 @@ export default function Nav({currentUser, section}) {
                                 <p>Leaderboard</p>
                             </Link>
                         </li>
+                        <li className="mobile-only">
+                            <Link onClick={linkClick} className={`nav__link profile ${section==="profile" ? "active" : ""}`} to="/profile">
+                                <SlAvatar image={fetchAvatar(currentUser.avatar)} />
+                                <p>{currentUser.username}</p>
+                            </Link>
+                        </li>
+                            
                     </ul>
                 </div>
-                <Link onClick={linkClick} className={`nav__link profile ${section==="profile" ? "active" : ""}`} to="/profile">
+                <Link onClick={linkClick} className={` desktop-only nav__link profile ${section==="profile" ? "active" : ""}`} to="/profile">
                     <SlAvatar image={fetchAvatar(currentUser.avatar)} />
                     <p>{currentUser.username}</p>
                 </Link>

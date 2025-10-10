@@ -1,8 +1,5 @@
 aside.nav {
 
-    * {
-        font-size: 1rem;
-    }
     position: sticky;
     top: 0;
     padding: 30px;
@@ -55,7 +52,7 @@ aside.nav {
         outline: 5px solid var(--background-color);
         border-radius: 5px;
         padding-inline: 5px;
-        transition: all 0.2s;
+        transition: background-color 0.2s, outline 0.2s;
 
         &.active {
             --background-color: var(--green-3);
@@ -74,5 +71,71 @@ aside.nav {
         }
     }
 
+    @media (width < 1024px) {
+        position: fixed;
+        width: 100%;
+        height: auto;
+        bottom: 0;
+        top: unset;
+        padding: 0;
+        z-index: 9999;
+
+        nav {
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            border: none;
+            border-radius: 20px 20px 0 0;
+            flex-direction: row;
+            flex-grow: 1;
+        }
+
+        .nav__upper {
+            width: 100%;
+            margin-inline: var(--spacing);
+        }
+
+        ul {
+            flex-direction: row;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        li {
+            width: 95px;
+        }
+        
+        a {
+            gap: 5px;
+        }
+
+        .nav__link {
+            flex-direction: column;
+
+            &.profile {
+                margin: 0;
+            }
+
+            sl-avatar {
+                --size: 25px;
+            }
+        }
+
+        .brandmark {
+            display: none;
+        }
+    }
+
+    @media (width < 600px) {
+
+        .nav__upper {
+            margin-inline: 0;
+        }
+
+        li {
+            width: 75px;
+        }
+        .nav__link {
+            font-size: 0.7rem;
+        }
+    }
 
 }

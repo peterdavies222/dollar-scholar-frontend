@@ -24,6 +24,11 @@
         sl-avatar {
             --size: 90px;
             margin-bottom: 10px;
+            border-radius: 50%;
+
+            &.outlined {
+                outline: 5px solid var(--pink-3);
+            }
         }
 
         .profile__username {
@@ -61,5 +66,35 @@
             height: 110px;
         }
 
+        
+    }
+
+    @media (width < 600px) {
+
+        gap: 15px;
+
+        .podium__place {
+            sl-avatar {
+                --size: 60px;
+            }
+
+            .profile__username {
+                font-size: 1rem;
+            }
+    
+            .podium__stand {
+                font-size: 2rem;
+            }
+
+            &--1 .podium__stand {
+                height: 100px;
+            }
+            &--2 .podium__stand {
+                height: 80px;
+            }
+            &--3 .podium__stand {
+                height: 60px;
+            }
+        }
     }
 }

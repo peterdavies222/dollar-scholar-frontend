@@ -1,6 +1,6 @@
 import Nav from "../components/Nav"
 import PoppingButton from "../components/PoppingButton"
-import warningIcon from "../assets/warning.svg?react"
+import warningIcon from "../assets/warning.svg"
 import { Link } from "react-router-dom"
 import { SlAvatar } from '@shoelace-style/shoelace/dist/react'
 import UserAPI from "../UserAPI"
@@ -21,8 +21,6 @@ export default function EditProfileView({currentUser, setCurrentUser, setToken, 
 
         setSelectedImage(file)
     }
-
-    const WarningIcon = warningIcon
 
     const editProfile = async (e) => {
         e.preventDefault()
@@ -94,7 +92,7 @@ export default function EditProfileView({currentUser, setCurrentUser, setToken, 
 
                 <div className="editprofile__frame delete">
                     <h2 className="subheading">Danger zone!</h2>
-                    <PoppingButton narrow label='DELETE ACCOUNT' buttonColor="red" onClick={()=>setDeleteDialogOpen(true)}/>
+                    <PoppingButton narrow icon={warningIcon} label='DELETE ACCOUNT' buttonColor="red" onClick={()=>setDeleteDialogOpen(true)}/>
                 </div>
             </main>
             <DeleteAccountDialog 

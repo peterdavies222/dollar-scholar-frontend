@@ -3,6 +3,7 @@ import { useNavigate, Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import AuthAPI from '../AuthAPI'
 import mascot from '../assets/mascot-1.svg'
+import mascotMobile from '../assets/mascot-1-mobile.svg'
 import brandmark from '../assets/brandmark.svg'
 import PoppingButton from '../components/PoppingButton'
 
@@ -86,7 +87,8 @@ export default function SignInView({ setToken, setToastData }) {
                     </form>
                 </div>   
                 <div className="image-container">
-                    <img src={mascot} alt="Round pink smiling character" />
+                    <img src={mascot} className="desktop-only" alt="Round pink smiling character" />
+                    <img src={mascotMobile} className="mobile-only" alt="Round pink smiling character" />
                 </div>
             </main>
 

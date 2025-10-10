@@ -16,9 +16,45 @@ main.lesson__content {
 
     .lesson__cards {
         margin-top: 60px;
+        margin-inline: calc(-2 * var(--spacing));
+        padding-inline: calc(2 * var(--spacing));
         display: flex;
         gap: 40px;
-        padding-bottom: 60px;
+        overflow: scroll;
+        padding-block: 3px;
+        scroll-behavior: smooth;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+
+    .cards__scrollers {
+        display: flex;
+        gap: 5px;
+        padding-block: 15px 60px;
+
+        button {
+            background: var(--green-3);
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+
+            &:hover {
+                background: var(--green-4);
+            }
+        }
+
+        .scroll-left img {
+            transform: translateX(-1px);
+        }
+        .scroll-right img {
+            transform: translateX(1px);
+        }
     }
 
     .popping-button {
@@ -46,6 +82,7 @@ main.lesson__content {
         font-weight: 700;
         color: var(--grey-7);
         transition: all 0.2s;
+        padding-inline: 15px;
 
         &:not(.selected):hover {
             background-color: var(--green-2);
@@ -59,6 +96,11 @@ main.lesson__content {
 
     &.summary {
         flex-direction: row;
+
+        img {
+            max-width: 50%;
+            padding: 50px;
+        }
     }
 
     .lesson__summary__text {
@@ -100,7 +142,7 @@ main.lesson__content {
         .topics__explanation {
 
             span {
-                padding: 5px;
+                padding: 2px 5px;
                 border-radius: 5px;
                 background-color: var(--green-3);
                 font-weight: 700;
@@ -112,6 +154,40 @@ main.lesson__content {
         }
     }
 
+    @media (width < 1024px) {
+
+        .lesson__summary__text {
+            // ideally: 50%, no more than 500px, no less than 300px;
+            width: clamp(min(300px, 100%), 70%, 500px);
+            margin-inline: auto;
+        }
+
+        &.summary {
+            flex-direction: column;
+
+            img {
+                order: -1;
+                width: 200px;
+                max-width: 100%;
+                padding: 0;
+                margin: auto;
+                margin-bottom: 30px;
+            }
+        }
+    }
+
+    @media (width < 800px) {
+        .quiz__options {
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(4, 50px);
+        }
+    }
+
+    @media (width < 600px) {
+        .lesson__cards {
+            gap: 15px;
+        }
+    }
     
 }
 

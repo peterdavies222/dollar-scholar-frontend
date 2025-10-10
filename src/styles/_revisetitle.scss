@@ -31,4 +31,8 @@
             font-size: 1.25rem;
         }
     }
+
+    @media (width < 1024px) {
+        width: 100%;
+    }
 }

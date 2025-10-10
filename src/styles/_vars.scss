@@ -62,17 +62,36 @@
     --sl-color-primary-950: #{color.adjust($brand-color, $lightness: -50%)};
 
 
+    //spacing
     --spacing-desktop: 90px;
     --spacing-tablet: 45px;
     --spacing-mobile: 20px;
 
     --spacing: var(--spacing-desktop);
+
+    //titles
+    --titles-desktop: 4rem;
+    --titles-tablet: 3rem;
+    --titles-mobile: 2rem;
+
+    --titles: var(--titles-desktop);
+
+    //subtitles
+    --subtitles-desktop: 2rem;
+    --subtitles-tablet: 1.5rem;
+    --subtitles-mobile: 1.5rem;
+
+    --subtitles: var(--subtitles-desktop);
     
-    @media (width < 900px) {
+    @media (width < 1024px) {
         --spacing: var(--spacing-tablet);
+        --titles: var(--titles-tablet);
+        --subtitles: var(--subtitles-tablet);
     }
     @media (width < 600px) {
         --spacing: var(--spacing-mobile);
+        --titles: var(--titles-mobile);
+        --subtitles: var(--subtitles-mobile);
     }
 
 }

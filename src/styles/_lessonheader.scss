@@ -54,4 +54,14 @@
     progress::-moz-progress-bar {
         background-color: var(--green-8);
     }
+
+    @media (width < 600px) {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+
+        progress {
+            width: 100%;
+        }
+    }
 }

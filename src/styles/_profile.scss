@@ -1,8 +1,19 @@
 .profile {
-    header {
+
+    main {
+        padding-top: 0;
+        overscroll-behavior: contain;
+        height: 100vh;
+        overflow: scroll;
+    }
+
+    header.main {
         display: flex;
         align-items: center;
         gap: 60px;
+        width: calc(100% + 2 * var(--spacing));
+        margin-inline: calc(-1 * var(--spacing));
+        padding-inline: var(--spacing);
 
         a {
             display: flex;
@@ -51,5 +62,24 @@
         right: 0;
         z-index: 1000;
         transform: translate(50%, -50%);
+    }
+
+    @media (width < 1024px) {
+
+        main {
+            padding-bottom: 120px;
+        }
+
+        header.main {
+            padding-block: calc(2 * var(--spacing));
+            top: calc(-1 * var(--spacing));
+        }
+    }
+
+    @media (width < 600px) {
+        header.main {
+            padding-block: calc(4 * var(--spacing));
+            top: calc(-2 * var(--spacing)); 
+        }
     }
 }

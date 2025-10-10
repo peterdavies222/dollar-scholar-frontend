@@ -2,6 +2,12 @@
     // outline: 1px solid red;
 }
 
+#root {
+  margin-inline: auto;
+  max-width: 1500px;
+  position: relative;
+}
+
 body {
     background-color: var(--pink-1);
 }
@@ -14,11 +20,11 @@ main {
     padding: var(--spacing);
     width: 100%;
     // overscroll-behavior: ;
+    flex-grow: 1;
 }
 
 header.main {
     padding-block: var(--spacing);
-    margin-top: calc(-1 * var(--spacing));
     position: sticky;
     top: 0;
     background: linear-gradient(to bottom, var(--pink-1) 80%, transparent 100%);
@@ -63,6 +69,7 @@ h1, h2, h3 {
     position: fixed;
     z-index: -1;
     border-radius: 50%;
+    display: none;
 }
 
 #portal-root {
@@ -106,5 +113,30 @@ h1, h2, h3 {
 
     sl-spinner {
         font-size: 2rem;
+    }
+}
+
+.mobile-only {
+    display: none !important;
+}
+
+@media (width < 1024px) {
+
+    header.main {
+        margin-top: 0;
+        padding-bottom: calc(2 * var(--spacing));
+        width: calc(100% + 2 * var(--spacing));
+    }
+
+    .circle {
+        display: none;
+    }
+
+    .mobile-only {
+        display: block !important;
+    }
+
+    .desktop-only {
+        display: none !important;
     }
 }

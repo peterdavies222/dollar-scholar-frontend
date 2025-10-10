@@ -16,4 +16,10 @@
         margin: auto;
         text-align: center;
     }
+
+    @media (width < 600px) {
+        &--footer {
+            width: 100%;
+        }
+    }
 }

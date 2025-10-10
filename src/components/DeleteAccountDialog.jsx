@@ -66,9 +66,10 @@ export default function DeleteAccountDialog(props) {
         <SlDialog
             ref={dialogRef}
             onSlAfterHide={props.onClose}
+            className="delete__account"
         >
             <h2 slot="label">Delete account?</h2>
-            <p>This action cannot be undone.</p>
+            <p>This action cannot be undone. Enter your username and password to continue.</p>
             <form onSubmit={deleteAccount}>
                 <div className="input-group">
                     <label className="subheading" htmlFor="delete-username">Username</label>
@@ -78,7 +79,7 @@ export default function DeleteAccountDialog(props) {
                     <label className="subheading" htmlFor="delete-password">Password</label>
                     <input type="password" name="delete-password" id="delete-password" autoComplete="false" onChange={e => setInputtedPassword(e.target.value)}></input>
                 </div>
-                <div slot="footer">
+                <div className="footer" slot="footer">
                     <PoppingButton buttonColor={buttonColor} label="Delete account" />
                 </div>
             </form>

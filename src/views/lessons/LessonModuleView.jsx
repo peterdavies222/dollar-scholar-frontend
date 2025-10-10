@@ -5,10 +5,14 @@ import CloseLesson from '../../components/CloseLesson'
 import LessonHeader from '../../components/LessonHeader'
 import LessonCard from '../../components/LessonCard'
 import PoppingButton from '../../components/PoppingButton'
+import chevronLeft from '../../assets/onboarding/chevron-left.svg'
+import chevronRight from '../../assets/onboarding/chevron-right.svg'
 
 export default function LessonModuleView() {
 
     const {lessonId, moduleNumber} = useParams()
+    const lessonCardsContainer = useRef()
+    const lessonCardsButtons = useRef()
 
     // finds the lesson in lessonsData that has the number 
     // associated with the lessonId from the URL
@@ -66,14 +70,36 @@ export default function LessonModuleView() {
             }
         }
 
+        function cardScrollerButtons() {
+            if(!lessonCardsContainer.current) return
+            const computedStyle = window.getComputedStyle(lessonCardsContainer.current)
+            const inlinePaddingPx = computedStyle.paddingInlineStart || computedStyle.paddingLeft
+            const inlinePadding = parseInt(inlinePaddingPx)
+            if(lessonCardsContainer.current.clientWidth < lessonCardsContainer.current.scrollWidth - inlinePadding) {
+                lessonCardsButtons.current.style.display = 'flex'
+            } else {
+                lessonCardsButtons.current.style.display = 'none'
+            }
+        }
+
         updateHeight() // run once on mount
+        cardScrollerButtons()
         window.addEventListener('resize', updateHeight)
+        window.addEventListener('resize', cardScrollerButtons)
 
         return () => {
             window.removeEventListener('resize', updateHeight)
+            window.removeEventListener('resize', cardScrollerButtons)
         }
     }, [])
 
+    const scrollLeft = () => {
+        lessonCardsContainer.current.scrollLeft -= '150'
+    }
+    const scrollRight = () => {
+        lessonCardsContainer.current.scrollLeft += '150'
+    }
+    
 
     return (
         <>
@@ -88,14 +114,18 @@ export default function LessonModuleView() {
                     <h3 className="subheading">New concept</h3>
                     <h1>{module.moduleTitle}</h1>
                     <div className="paragraphs">{paragraphs}</div>
-                    <div className="lesson__cards">
+                    <div className="lesson__cards" ref={lessonCardsContainer}>
                         {lessonCardsEls}
+                    </div>
+                    <div className="cards__scrollers" ref={lessonCardsButtons}>
+                        <button className="scroll-left" onClick={scrollLeft}><img src={chevronLeft} alt="Scroll left" /></button>
+                        <button className="scroll-right" onClick={scrollRight}><img src={chevronRight} alt="Scroll Right" /></button>
                     </div>
                 </div>
                 <PoppingButton 
                     label={lesson.teachingModules.length === Number(moduleNumber) ? 'Test my knowledge' : 'Continue'}
                     link={nextScreen}
-                    onClick={()=>setOpenLessonCard(null)}
+                    onClick={()=>setOpenLessonCards([])}
                     narrow
                 />
             </main>

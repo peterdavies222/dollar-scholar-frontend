@@ -31,7 +31,7 @@ export default function ReviseConceptView({currentUser}) {
             />
             <main>
                 <header className="main">
-                    <Link to="/revise"><ChevronLeft />Back to concept book</Link>
+                    <Link to="/revise" onClick={()=>window.scrollTo(0, 0)}><ChevronLeft />Back to concept book</Link>
                     <h1>{lesson.title}</h1>
                 </header>
                 <div className="modules">

@@ -52,6 +52,10 @@
         color: var(--text-color);
         font-weight: bold;
         padding: 10px;
+        display: flex;
+        align-items: center;
+        gap: 1em;
+        justify-content: center;
     }
 
     &:not(.inactive):hover {
@@ -63,5 +67,11 @@
         padding-bottom: 4px;
         outline: none;
         margin-top: 34px;
+    }
+
+    @media (width < 600px) {
+        &.narrow {
+            width: 100%;
+        }
     }
 }

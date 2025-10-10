@@ -31,6 +31,7 @@ export default function LeaderboardView({ currentUser }) {
                 placing={index + 1}
                 username={user.username}
                 lessonsCount={user.recentlyCompletedLessonsCount}
+                avatar={user.avatar}
             />
         )
     })
