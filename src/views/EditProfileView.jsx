@@ -62,6 +62,7 @@ export default function EditProfileView({currentUser, setCurrentUser, setToken, 
                     <h1>Edit profile</h1>
                     <div>
                         <Link to="/profile">Cancel</Link>
+                        <button className="mobile-only save" aria-controls="#submit-btn" onClick={()=>document.getElementById('submit-btn').click()}>Save</button>
                         <PoppingButton label="Save" narrow aria-controls="#submit-btn" onClick={()=>document.getElementById('submit-btn').click()} />
                     </div>
                 </header>

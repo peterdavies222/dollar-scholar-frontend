@@ -80,6 +80,18 @@
         header.main {
             padding-block: calc(4 * var(--spacing));
             top: calc(-2 * var(--spacing)); 
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .profile__userdetails {
+            flex-direction: column;
+
+            p {
+                font-size: 1.5rem;
+                max-width: 100%;
+                overflow-wrap: break-word;
+            }
         }
     }
 }

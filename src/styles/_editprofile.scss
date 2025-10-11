@@ -25,6 +25,15 @@
                 font-family: 'filson-soft', system-ui, sans-serif;
                 font-weight: bold;
             }
+
+            .save {
+                border: 4px solid var(--pink-8);
+                color: var(--pink-8);
+                border-radius: 10px;
+                padding: 5px 10px;
+                font-weight: 700;
+                background: none;
+            }
         }
     }
 
@@ -112,6 +121,12 @@
         display: none;
     }
 
+    @media (width < 1024px) {
+        header.main .popping-button {
+            display: none;
+        }
+    }
+
     @media (width < 600px) {
 
         header.main {
@@ -121,12 +136,13 @@
         header.main > div {
             position: static;
             transform: none;
-            flex-direction: column;
+            // flex-direction: column;
             gap: 10px;
+            flex-wrap: wrap;
 
             button {
                 margin: 0;
-                order: -1;
+                // order: -1;
             }
         }
     }

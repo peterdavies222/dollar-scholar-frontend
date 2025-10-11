@@ -122,6 +122,10 @@ h1, h2, h3 {
 
 @media (width < 1024px) {
 
+    body {
+        overflow: hidden;
+    }
+
     header.main {
         margin-top: 0;
         padding-bottom: calc(2 * var(--spacing));
