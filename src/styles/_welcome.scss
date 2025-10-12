@@ -29,18 +29,29 @@
 
     h1 {
         color: var(--pink-7);
-        font-size: 3rem;
+        font-size: var(--titles);
         text-align: center;
     }
 
     .cards__container {
-        padding-block: 90px;
-        margin-inline: calc(-2 * var(--spacing));
-        width: calc(100% + 4*var(--spacing));
-        display: flex;
-        gap: 20px;
         overflow: hidden;
         mask-image: linear-gradient(90deg, transparent 5%, red 25%, red 75%, transparent 95%);
+        padding-block: var(--spacing);
+        margin-inline: calc(-2 * var(--spacing));
+        width: calc(100% + 4*var(--spacing));
+    }
+
+
+    .cards__container__inner {
+        display: flex;
+        gap: 20px;
+
+        &.scrolling {
+            animation-name: scrolling;
+            animation-duration: 30s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+        }
     }
 
     .welcome__card {
@@ -57,5 +68,18 @@
         color: var(--pink-7);
         text-align: center;
         display: block;
+    }
+
+    @media (width < 600px) {
+        padding: calc(2*var(--spacing));
+    }
+}
+
+@keyframes scrolling {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(calc(-10 * (170px)));
     }
 }

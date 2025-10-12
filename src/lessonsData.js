@@ -1,19 +1,26 @@
 // lesson 1 imports
-import RocketIcon from './assets/lesson-icons/lesson-1/rocket.svg?react'
+import RocketTitleIcon from './assets/lesson-icons/lesson-1/rocket.svg?react'
 import Badge1 from './assets/lesson-icons/lesson-1/badge.svg?react'
 
 // lesson 2 imports
-import WalletIcon from './assets/lesson-icons/lesson-2/wallet.svg?react'
+import WalletTitleIcon from './assets/lesson-icons/lesson-2/wallet.svg?react'
+import Badge2 from './assets/lesson-icons/lesson-2/badge.svg?react'
 
 // lesson 3 imports
+import TrendTitleIcon from './assets/lesson-icons/lesson-3/trend.svg?react'
+import Badge3 from './assets/lesson-icons/lesson-3/badge.svg?react'
 
 // lesson 4 imports
-
-// lesson 4 imports
+import PiggyBankTitleIcon from './assets/lesson-icons/lesson-4/piggy-bank.svg?react'
+import Badge4 from './assets/lesson-icons/lesson-4/badge.svg?react'
 
 // lesson 5 imports
+import ShieldTitleIcon from './assets/lesson-icons/lesson-5/shield.svg?react'
+import Badge5 from './assets/lesson-icons/lesson-5/badge.svg?react'
 
 // lesson 6 imports
+import FutureTitleIcon from './assets/lesson-icons/lesson-6/future.svg?react'
+import Badge6 from './assets/lesson-icons/lesson-6/badge.svg?react'
 
 // card icons
 import CoinIcon from './assets/lesson-icons/coin.svg?react'
@@ -33,8 +40,8 @@ export default [
         number: 1,
         numberOrder: "first",
         title: "Getting started",
-        mainIcon: RocketIcon,
-        mainIconAlt: "rocket icon",
+        mainIcon: RocketTitleIcon,
+        mainIconAlt: "Rocket icon",
         duration: "5 min",
         overview: "So, you've decided to dabble in a bit of personal finance... Good on you! In this lesson, we're gonna be looking at the basics of personal finance.",
         topicsCovered: [
@@ -210,7 +217,7 @@ export default [
             }
         ],
         badge: {
-            label: "Badge for lesson 1",
+            label: "Exceptional earner",
             image: Badge1
         }
     },
@@ -218,8 +225,8 @@ export default [
         number: 2,
         numberOrder: "second",
         title: "Banking must-knows",
-        mainIcon: WalletIcon,
-        mainIconAlt: "bank icon",
+        mainIcon: WalletTitleIcon,
+        mainIconAlt: "Wallet icon",
         duration: "7 min",
         overview: "Banks are where most people start their money journey. In this lesson, we'll look at choosing a bank, understanding credit reports, and knowing the difference between account types.",
         topicsCovered: [
@@ -394,16 +401,16 @@ export default [
             }
         ],
         badge: {
-            label: "Badge for lesson 2",
-            image: Badge1
+            label: "Brilliant banker",
+            image: Badge2
         }
     },
     {
         number: 3,
         numberOrder: "third",
         title: "Growing your money",
-        mainIcon: WalletIcon,
-        mainIconAlt: "growing money icon",
+        mainIcon: TrendTitleIcon,
+        mainIconAlt: "Trend icon",
         duration: "7 min",
         overview: "Want your money to work for you? This lesson will introduce investing and help you understand how to choose accounts that give you the best interest rates.",
         topicsCovered: [
@@ -494,16 +501,16 @@ export default [
             }
         ],
         badge: {
-            label: "Badge for lesson 3",
-            image: Badge1
+            label: "Ingenious investor",
+            image: Badge3
         }
     },
     {
         number: 4,
         numberOrder: "fourth",
         title: "Saving your money",
-        mainIcon: WalletIcon,
-        mainIconAlt: "saving money icon",
+        mainIcon: PiggyBankTitleIcon,
+        mainIconAlt: "Piggy bank icon",
         duration: "7 min",
         overview: "Saving is key to reaching your goals. This lesson will teach you how to budget effectively and how to use Buy Now Pay Later services responsibly.",
         topicsCovered: [
@@ -593,16 +600,16 @@ export default [
             }
         ],
         badge: {
-            label: "Badge for lesson 4",
-            image: Badge1
+            label: "Strategic saver",
+            image: Badge4
         }
     },
     {
         number: 5,
         numberOrder: "fifth",
         title: "Safety",
-        mainIcon: WalletIcon,
-        mainIconAlt: "safety icon",
+        mainIcon: ShieldTitleIcon,
+        mainIconAlt: "Shield icon",
         duration: "8 min",
         overview: "Keeping your money safe is crucial. Learn about scams, online safety, debt, and how to build an emergency fund.",
         topicsCovered: [
@@ -724,16 +731,16 @@ export default [
             }
         ],
         badge: {
-            label: "Badge for lesson 5",
-            image: Badge1
+            label: "Powerful protector",
+            image: Badge5
         }
     },
     {
         number: 6,
         numberOrder: "sixth",
         title: "Planning for the future",
-        mainIcon: WalletIcon,
-        mainIconAlt: "future planning icon",
+        mainIcon: FutureTitleIcon,
+        mainIconAlt: "Future planning icon",
         duration: "8 min",
         overview: "Thinking ahead is key to financial security. Learn about superannuation and saving for retirement to prepare for life after work.",
         topicsCovered: [
@@ -818,8 +825,8 @@ export default [
             }
         ],
         badge: {
-            label: "Badge for lesson 6",
-            image: Badge1
+            label: "Perfect planner",
+            image: Badge6
         }
     }
 

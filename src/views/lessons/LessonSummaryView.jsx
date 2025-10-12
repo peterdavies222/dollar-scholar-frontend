@@ -39,24 +39,28 @@ export default function LessonSummaryView({currentUser, setCurrentUser}) {
                 <div className="lesson__summary__text">
                     <div className="lesson__summary__block">
                         <h1>Way to go!</h1>
-                        <p className="lesson__summary__byline">You've just completed your {lesson.numberOrder} lesson.</p>
+                        <p className="lesson__summary__byline">You've just {currentUser.upToLevel <= lessonId ? 'completed your' : 'revised the'} {lesson.numberOrder} lesson.</p>
                     </div>
 
                     <div className="lesson__summary__block">
-                        <h3 className="subheading">Topics learnt</h3>
+                        <h3 className="subheading">Topics {currentUser.upToLevel <= lessonId ? 'learned' : 'revised'}</h3>
                         <ul>
                             {topicsEls}
                         </ul>
                         <p className="topics__explanation">Your learnt topics can be found in the <span>revise</span> section</p>
                     </div>
-                    
-                    <div className="lesson__summary__block">
-                        <h3 className="subheading">Badge earned!</h3>
-                        <LessonBadge 
-                            image={lesson.badge.image}
-                            label={lesson.badge.label}
-                        />
-                    </div>
+
+                    {
+                        currentUser.upToLevel <= lessonId ? 
+                        <div className="lesson__summary__block">
+                            <h3 className="subheading">Badge earned!</h3>
+                            <LessonBadge 
+                                image={lesson.badge.image}
+                                label={lesson.badge.label}
+                            />
+                        </div> :
+                        null
+                    }
                     
                     <PoppingButton 
                         narrow
