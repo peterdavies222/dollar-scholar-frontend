@@ -68,6 +68,12 @@ aside.nav {
 
         &.profile {
             margin-top: 20px;
+
+            p {
+                max-width: 8rem;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
         }
     }
 

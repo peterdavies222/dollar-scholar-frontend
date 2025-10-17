@@ -26,14 +26,30 @@ export default function LessonQuizView() {
     }
     
     const options = question.options.map((option, i) => {
-        return (
-            <button 
-                onClick={()=> handleOptionClick(i)} 
-                key={i} 
-                className={`quiz__option ${selectedOptions.includes(i) ? 'selected' : ''}`}
-            >
-                {option.label}
-            </button>
+        if(question.correctAnswers.length > 1) return (
+            <div onClick={()=> handleOptionClick(i)} key={i} className={`quiz__option single ${selectedOptions.includes(i) ? 'selected' : ''}`}>
+                <input
+                    id={i}
+                    type="checkbox" 
+                    checked={selectedOptions.includes(i)}
+                    onChange={()=>handleOptionClick(i)}
+                    />
+                <span className={`checkbox ${selectedOptions.includes(i) ? 'checked' : ''}`}></span>
+                <label htmlFor={`#${i}`}>{option.label}</label>
+            </div>
+        )
+        if(question.correctAnswers.length === 1) return (
+            <div onClick={()=> setSelectedOptions([i])} key={i} className={`quiz__option multiple ${selectedOptions.includes(i) ? 'selected' : ''}`}>
+                <input
+                    name="question"
+                    type="radio" 
+                    checked={selectedOptions.includes(i)}
+                    onChange={()=>setSelectedOptions([i])}
+                    // defaultChecked={selectedOptions.includes(i)}
+                />
+                <span className={`radio ${selectedOptions.includes(i) ? 'checked' : ''}`}></span>
+                <label htmlFor={`#${i}`}>{option.label}</label>
+            </div>
         )
     })
 
@@ -108,13 +124,13 @@ export default function LessonQuizView() {
             <CloseLesson 
                 dialogOpen={dialogOpen}
                 onClose={()=> setDialogOpen(false)}
-                setSelectedOptions={setSelectedOptions}
             />
             <CheckAnswer 
                 success={success}
                 checkAnswerOpen={checkAnswerOpen}
                 onClose={()=>setCheckAnswerOpen(false)}
                 nextScreen={nextScreen}
+                setSelectedOptions={setSelectedOptions}
             />
         </>
     )

@@ -1,8 +1,9 @@
-import PoppingButton from "./PoppingButton"
+import { forwardRef } from "react";
+import PoppingButton from "./PoppingButton";
 
-export default function OnbaordingFrame(props) {
+const OnboardingFrame = forwardRef((props, ref) => {
     return (
-        <div className="onboarding__frame">
+        <div className="onboarding__frame" ref={ref}>
             <img src={props.image} alt={props.alt} />
             <div className="onboarding__text">
                 <h1>{props.title}</h1>
@@ -14,4 +15,6 @@ export default function OnbaordingFrame(props) {
             </div>
         </div>
     )
-}
+})
+
+export default OnboardingFrame;

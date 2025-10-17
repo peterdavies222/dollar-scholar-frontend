@@ -15,13 +15,13 @@ main.lesson__content {
     }
 
     .lesson__cards {
-        margin-top: 60px;
+        margin-top: 45px;
         margin-inline: calc(-2 * var(--spacing));
         padding-inline: calc(2 * var(--spacing));
         display: flex;
         gap: 40px;
         overflow: scroll;
-        padding-block: 3px;
+        padding-block: 15px;
         scroll-behavior: smooth;
 
         &::-webkit-scrollbar {
@@ -83,6 +83,35 @@ main.lesson__content {
         color: var(--grey-7);
         transition: all 0.2s;
         padding-inline: 15px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        cursor: pointer;
+
+        input {
+            display: none;
+        }
+
+        span {
+            width: 1rem;
+            height: 1rem;
+            border: 2px solid var(--green-4);
+            transition: all 0.2s;
+            flex-shrink: 0;
+
+            &.checkbox {
+                border-radius: 5px;
+            }
+
+            &.radio {
+                border-radius: 50%;
+            }
+
+            &.checked {
+                border-color: var(--green-6);
+                background-color: var(--green-6);
+            }
+        }
 
         &:not(.selected):hover {
             background-color: var(--green-2);

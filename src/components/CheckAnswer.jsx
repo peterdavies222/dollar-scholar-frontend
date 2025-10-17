@@ -24,6 +24,11 @@ export default function CheckAnswer(props) {
         props.setSelectedOptions([])
     }
 
+    const handleRetry = () => {
+        checkAnswerRef.current.hide()
+        props.setSelectedOptions([])
+    }
+
     return createPortal(
         <SlDialog 
             ref={checkAnswerRef}
@@ -44,13 +49,13 @@ export default function CheckAnswer(props) {
                 </div> : 
                 <div className="footer" slot="footer">
                     <PoppingButton 
-                        onClick={()=>checkAnswerRef.current.hide()}
+                        onClick={handleRetry}
                         label="Try again"
                         narrow
                     />
                     <Link 
                         to={props.nextScreen}
-                        onClick={()=> props.setSelectedOptions([])}
+                        onClick={proceedToNext}
                     >Skip question</Link>
                 </div>
             }

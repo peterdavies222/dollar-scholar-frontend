@@ -33,7 +33,7 @@
     .lesson-revision-cards {
         display: flex;
         gap: 20px;
-        padding-block: 4px;
+        padding-block: 15px;
         margin-inline: calc(-1 * var(--spacing));
         padding-inline: var(--spacing);
         width: calc(100% + 2 * var(--spacing));

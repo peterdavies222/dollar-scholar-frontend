@@ -120,6 +120,10 @@ h1, h2, h3 {
     display: none !important;
 }
 
+sl-spinner {
+    --indicator-color: var(--white);
+}
+
 @media (width < 1024px) {
 
     body:has(.contains__nav__desktop) {

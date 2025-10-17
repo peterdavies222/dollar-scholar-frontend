@@ -34,7 +34,10 @@
     @media (width < 1024px) {
         flex-direction: column;
         gap: 45px;
-        
+
+        button, a {
+            margin-inline: auto;
+        }
 
         img {
             width: min(200px, 100%);

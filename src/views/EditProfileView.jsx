@@ -14,6 +14,7 @@ export default function EditProfileView({currentUser, setCurrentUser, setToken, 
     const navigate = useNavigate()
     const [deleteDialogOpen, setDeleteDialogOpen] = useState(false)
     const [selectedImage, setSelectedImage] = useState(null)
+    const [loading, setLoading] = useState(false)
 
     const handleFileChange = (e) => {
         const file = e.target.files[0]
@@ -23,31 +24,42 @@ export default function EditProfileView({currentUser, setCurrentUser, setToken, 
     }
 
     const editProfile = async (e) => {
-        e.preventDefault()
-        if(selectedImage) {
-            const formData = new FormData()
-            formData.append('avatar', selectedImage)
-            if(e.target.username.value.length !== 0) {
-                formData.append('username', e.target.username.value)
+        setLoading(true)
+        try {
+            e.preventDefault()
+            if(selectedImage) {
+                const formData = new FormData()
+                formData.append('avatar', selectedImage)
+                if(e.target.username.value.length !== 0) {
+                    formData.append('username', e.target.username.value)
+                }
+                if(e.target.password.value.length !== 0) {
+                    formData.append('password', e.target.password.value)
+                }
+                const updatedUser = await UserAPI.updateProfileWithAvatar(currentUser._id, formData)
+                setCurrentUser(updatedUser)
+                navigate('/profile')
+            } else {
+                let data = {}
+                if(e.target.username.value.length !== 0) {
+                    data.username = e.target.username.value
+                }
+                if(e.target.password.value.length !== 0) {
+                    data.password = e.target.password.value
+                }
+                const updatedUser = await UserAPI.updateProfileWithoutAvatar(currentUser._id, data)
+                setCurrentUser(updatedUser)
+                navigate('/profile')
             }
-            if(e.target.password.value.length !== 0) {
-                formData.append('password', e.target.password.value)
-            }
-            const updatedUser = await UserAPI.updateProfileWithAvatar(currentUser._id, formData)
-            setCurrentUser(updatedUser)
-            navigate('/profile')
-        } else {
-            let data = {}
-            if(e.target.username.value.length !== 0) {
-                data.username = e.target.username.value
-            }
-            if(e.target.password.value.length !== 0) {
-                data.password = e.target.password.value
-            }
-            const updatedUser = await UserAPI.updateProfileWithoutAvatar(currentUser._id, data)
-            setCurrentUser(updatedUser)
-            navigate('/profile')
+        } catch(err) {
+            console.log(err)
+            setToastData({
+                visible: true,
+                message: 'Error:', err,
+                type: 'error'
+            })
         }
+        setLoading(false)
     }
 
     return (
@@ -63,7 +75,7 @@ export default function EditProfileView({currentUser, setCurrentUser, setToken, 
                     <div>
                         <Link to="/profile">Cancel</Link>
                         <button className="mobile-only save" aria-controls="#submit-btn" onClick={()=>document.getElementById('submit-btn').click()}>Save</button>
-                        <PoppingButton label="Save" narrow aria-controls="#submit-btn" onClick={()=>document.getElementById('submit-btn').click()} />
+                        <PoppingButton loading={loading} label="Save" narrow aria-controls="#submit-btn" onClick={()=>document.getElementById('submit-btn').click()} />
                     </div>
                 </header>
 
@@ -75,8 +87,9 @@ export default function EditProfileView({currentUser, setCurrentUser, setToken, 
                                 image={selectedImage ? URL.createObjectURL(selectedImage) : fetchAvatar(currentUser.avatar)}
                             />
                             <label className="avatar-button" htmlFor="avatar">edit</label>
-                            <input accept="image/*" type="file" name="avatar" id="avatar" onChange={handleFileChange}/>
+                            <input accept="image/jpeg, .jpeg, .jpg" type="file" name="avatar" id="avatar" onChange={handleFileChange}/>
                         </div>
+                        <p className="editprofile__tip">Accepted file types: JPEG, JPG</p>
                     </div>
                     <div className="editprofile__frame username">
                         <label htmlFor="username" className="subheading">Username</label>

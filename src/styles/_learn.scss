@@ -1,5 +1,10 @@
 .learn {
 
+    h1 {
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
     main {
         padding-top: 0;
         overflow: scroll;

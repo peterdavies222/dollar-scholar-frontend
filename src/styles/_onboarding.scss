@@ -12,19 +12,30 @@
         align-items: center;
     }
 
+    .carousel__wrapper {  /* ← New wrapper */
+        overflow: hidden;
+        width: 100%;
+        mask-image: linear-gradient(to right, transparent 5%, white 10%, white 90%, transparent 95%);
+    }
+
     .carousel__container {
         --inline-spacing: calc(2 * var(--spacing));
         padding-inline: var(--inline-spacing);
         display: grid;
         grid-template-columns: repeat(3, 100%);
         gap: var(--inline-spacing);
-        overflow: hidden;
-        mask-image: linear-gradient(to right, transparent 5%, white 10%, white 90%, transparent 95%);
+        overflow-x: scroll;  /* ← Change to scroll */
         scroll-snap-type: x mandatory;
         scroll-behavior: smooth;
-
+        touch-action: none;  /* ← Prevents touch scrolling */
+        overscroll-behavior: none;  /* ← Prevents bounce scrolling */
+        pointer-events: none;  /* ← Prevents mouse wheel scrolling */
         &::-webkit-scrollbar {
             display: none;
+        }
+
+        button {
+            pointer-events: auto;
         }
     }
 

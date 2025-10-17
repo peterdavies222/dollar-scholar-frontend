@@ -36,6 +36,8 @@
             font-family: filson-soft, system-ui, sans-serif;
             font-weight: 700;
             font-size: 2rem;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
     }
 
