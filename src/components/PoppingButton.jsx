@@ -1,10 +1,11 @@
 import {Link} from 'react-router-dom'
 import { SlSpinner } from '@shoelace-style/shoelace/dist/react'
+import { forwardRef } from 'react'
 
-export default function PoppingButton(props) {
+const PoppingButton =  forwardRef((props, ref) => {
 
     if (props.link) return (
-        <Link onClick={props.onClick && props.onClick} to={props.link} className={`popping-button ${props.buttonColor ? props.buttonColor : 'pink'} ${props.narrow && 'narrow'}`}>
+        <Link ref={ref} onClick={props.onClick && props.onClick} to={props.link} className={`popping-button ${props.buttonColor ? props.buttonColor : 'pink'} ${props.narrow && 'narrow'}`}>
             <div className="popping-button__inner">
                 {props.loading ? 
                     <SlSpinner /> : 
@@ -18,7 +19,7 @@ export default function PoppingButton(props) {
     )
 
     return (
-        <button onClick={props.onClick} className={`popping-button ${props.buttonColor ? props.buttonColor : 'pink'} ${props.narrow && 'narrow'}`} type={props.type && props.type}>
+        <button ref={ref} onClick={props.onClick} className={`popping-button ${props.buttonColor ? props.buttonColor : 'pink'} ${props.narrow && 'narrow'}`} type={props.type && props.type}>
             <div className="popping-button__inner">
                 {props.loading ? 
                     <SlSpinner /> : 
@@ -31,4 +32,6 @@ export default function PoppingButton(props) {
         </button>
     )
 
-}
+})
+
+export default PoppingButton

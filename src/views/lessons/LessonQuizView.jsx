@@ -6,6 +6,8 @@ import CloseLesson from '../../components/CloseLesson'
 import PoppingButton from '../../components/PoppingButton'
 import CheckAnswer from '../../components/CheckAnswer'
 import {arraysEqual} from '../../Utils'
+import successChime from '../../assets/success-chime.wav'
+import incorrectChime from '../../assets/incorrect-chime.wav'
 
 export default function LessonQuizView() {
 
@@ -98,6 +100,22 @@ export default function LessonQuizView() {
         nextScreen = `/lessons/${lessonId}/quiz/${Number(questionNumber) + 1}`
     }
 
+    const correctAudio = new Audio(successChime)
+    const incorrectAudio = new Audio(incorrectChime)
+
+    const checkAnswerHandler = () => {
+        setCheckAnswerOpen(true)
+        success ? correctAudio.play() : incorrectAudio.play()
+    }
+
+    const inactiveButton = useRef(null)
+    const wiggle = ()=> {
+        inactiveButton.current.classList.add('wiggling')
+        setTimeout(()=> {
+            inactiveButton.current.classList.remove('wiggling')
+        }, 500)
+    }
+
     return (
         <>
             <LessonHeader 
@@ -115,11 +133,23 @@ export default function LessonQuizView() {
                         {options}
                     </div>
                 </div>
-                <PoppingButton 
-                    label="Check my answer"
-                    onClick={()=>setCheckAnswerOpen(true)}
-                    narrow
-                />
+                {selectedOptions.length === 0 ?
+                    <PoppingButton 
+                        label="Check my answer"
+                        onClick={wiggle}
+                        buttonColor="inactive"
+                        narrow
+                        ref={inactiveButton}
+                    />
+                    :
+                    <PoppingButton 
+                        label="Check my answer"
+                        onClick={()=>checkAnswerHandler()}
+                        buttonColor="pink"
+                        narrow
+                    />
+                }
+                
             </main>
             <CloseLesson 
                 dialogOpen={dialogOpen}

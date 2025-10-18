@@ -64,7 +64,7 @@ export default function LessonSummaryView({currentUser, setCurrentUser}) {
                     
                     <PoppingButton 
                         narrow
-                        label="Heck yeah!"
+                        label="Close lesson"
                         onClick={()=>completeLesson(Number(lessonId))}
                     />
                 </div>

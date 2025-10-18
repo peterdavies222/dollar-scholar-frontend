@@ -87,9 +87,9 @@ export default function EditProfileView({currentUser, setCurrentUser, setToken, 
                                 image={selectedImage ? URL.createObjectURL(selectedImage) : fetchAvatar(currentUser.avatar)}
                             />
                             <label className="avatar-button" htmlFor="avatar">edit</label>
-                            <input accept="image/jpeg, .jpeg, .jpg" type="file" name="avatar" id="avatar" onChange={handleFileChange}/>
+                            <input accept="image/png, image/jpeg, .png, .jpeg, .jpg" type="file" name="avatar" id="avatar" onChange={handleFileChange}/>
                         </div>
-                        <p className="editprofile__tip">Accepted file types: JPEG, JPG</p>
+                        <p className="editprofile__tip">Accepted file types: JPEG, JPG, PNG</p>
                     </div>
                     <div className="editprofile__frame username">
                         <label htmlFor="username" className="subheading">Username</label>

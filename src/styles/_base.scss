@@ -148,3 +148,20 @@ sl-spinner {
         display: none !important;
     }
 }
+
+.wiggling {
+    --amount: 10px;
+    animation: wiggle 0.5s ease-in-out;
+}
+
+@keyframes wiggle {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    10%, 50%, 90% {
+        transform: translateX(var(--amount));
+    }
+    30%, 70% {
+        transform: translateX(calc(-1 * var(--amount)));
+    }
+}
