@@ -25,7 +25,7 @@ export default function SignUpView({ setToken, setToastData }) {
 
         try {
             const result = await AuthAPI.signUpUser(formData)
-            console.log('result = ', result)
+            // console.log('result = ', result)
     
             if(!result || !result.token) {
                 setToastData({

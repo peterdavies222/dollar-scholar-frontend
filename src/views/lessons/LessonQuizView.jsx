@@ -79,7 +79,7 @@ export default function LessonQuizView() {
     const [checkAnswerOpen, setCheckAnswerOpen] = useState(false)
 
     const checkAnswer = () => {
-        console.log('checking. selected options:', selectedOptions, 'correct answers:', question.correctAnswers)
+        // console.log('checking. selected options:', selectedOptions, 'correct answers:', question.correctAnswers)
         return arraysEqual(selectedOptions, question.correctAnswers)
     }
 

@@ -24,12 +24,10 @@ export default function OnboardingView({currentUser}) {
         UserAPI.onboardUser(currentUser._id)
     }
     useEffect(()=> {
-        console.log('starting')
         if(!carouselContainerRef.current) return
         const frames = carouselContainerRef.current.children
         if (frames.length === 0) return
        
-        console.log('changing')
         const frameWidth = frames[0].offsetWidth
         const gapWidth = Number(window.getComputedStyle(carouselContainerRef.current).gap.replace("px", ""))
         const scrollPosition = (currentFrame - 1) * (frameWidth + gapWidth)

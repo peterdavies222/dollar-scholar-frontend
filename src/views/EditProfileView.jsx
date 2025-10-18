@@ -52,7 +52,7 @@ export default function EditProfileView({currentUser, setCurrentUser, setToken, 
                 navigate('/profile')
             }
         } catch(err) {
-            console.log(err)
+            // console.log(err)
             setToastData({
                 visible: true,
                 message: 'Error:', err,

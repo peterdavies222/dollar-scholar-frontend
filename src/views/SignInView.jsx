@@ -6,6 +6,7 @@ import mascot from '../assets/mascot-1.svg'
 import mascotMobile from '../assets/mascot-1-mobile.svg'
 import brandmark from '../assets/brandmark.svg'
 import PoppingButton from '../components/PoppingButton'
+import UserAPI from '../UserAPI'
 
 export default function SignInView({ setToken, setToastData }) {
 
@@ -34,6 +35,7 @@ export default function SignInView({ setToken, setToastData }) {
             username,
             password
         })
+        
 
         if(!result.token) {
             setToastData({
@@ -47,10 +49,13 @@ export default function SignInView({ setToken, setToastData }) {
         } else {
             setToken(result.token)
             localStorage.setItem('token', result.token)
-            navigate('/learn');
+            const user = await UserAPI.getUserById(result.token)
+            const newUserStatus = user.newUser
+            navigate(newUserStatus ? '/onboarding' : '/learn');
             setToastData({
                 visible: true,
-                message: 'Welcome to Dollar Scholar'
+                message: 'Welcome to Dollar Scholar',
+                type: 'normal'
             })
             setLoading(false)
         }
